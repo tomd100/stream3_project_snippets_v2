@@ -19,7 +19,7 @@ Video Page
         
         {% for field in form %}
             <label class="field_input_label">{{ field.label_tag }}</label>
-            <p>{{ field }}</p>
+            <p id='video_field'>{{ field }}</p>
         {% endfor %}
         
         <br>
@@ -27,7 +27,6 @@ Video Page
     </form>
 
 </div>
-
 
 
 {% endblock %}

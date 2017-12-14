@@ -30,15 +30,24 @@ body{
 }
 
 #video_list_container{
-    border:solid;
+    border-top:solid;
     border-width: thin;
     max-height: 350px;
     overflow-y:scroll;
+    padding-top:10px;
 }
 
 .video_list_item{
     margin-left:20px;
     margin-right:20px;
+}
+
+#id_title{
+    width:400px;
+}
+
+#id_url{
+    width:400px;
 }
 
 /*------------------------------------------------------*/
