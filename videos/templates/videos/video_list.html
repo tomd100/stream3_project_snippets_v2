@@ -1,0 +1,32 @@
+{% extends 'base.html' %}
+{% load bootstrap_tags %}
+
+{% block title %}
+
+Video Page
+
+{% endblock %}
+
+
+
+{% block content %}
+
+<div class='col-md-6'>
+    <h3>Video List</h3>
+    
+    <div id = 'video_list_container'>
+        <div class = 'list_item'>
+            {% for video in object_list %}
+                <p>
+                    <a href='{% url "video-edit" video.id %}'><i class="fa fa-pencil"></i></a>
+                    <a href='{% url "video-delete" video.id %}'><i class="fa fa-trash"></i></a>
+                    <a class='video_links' href='{% url "view_video" video.id %}'>{{ video.title }}</i></a>
+                </p>
+            {% endfor %}
+        </div>
+    </div>
+    <a href='{% url "video-add" %}'><i class="fa fa-plus"></i></a>
+</div>
+
+{% endblock %}
+

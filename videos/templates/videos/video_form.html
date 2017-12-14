@@ -1,0 +1,34 @@
+{% extends 'base.html' %}
+{% load bootstrap_tags %}
+
+{% block title %}
+
+Video Page
+
+{% endblock %}
+
+
+
+{% block content %}
+
+<div class='col-md-6'>
+    <h3>Add Video</h3>
+
+    <form id="video_form" method ='POST' enctype="multipart/form-data" >
+        {% csrf_token %}
+        
+        {% for field in form %}
+            <label class="field_input_label">{{ field.label_tag }}</label>
+            <p>{{ field }}</p>
+        {% endfor %}
+        
+        <br>
+        <button type='submit'>Save</button>
+    </form>
+
+</div>
+
+
+
+{% endblock %}
+

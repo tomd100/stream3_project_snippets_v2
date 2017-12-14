@@ -1,0 +1,30 @@
+{% extends "base.html" %}
+{% load static from staticfiles %}
+{% load bootstrap_tags %} 
+
+
+{% block title %}
+
+Subscription Page
+
+{% endblock %}
+
+
+{% block content %}
+
+<div id="select">
+  {% include '_order.html' %}
+</div>
+
+<div hidden id="checkout">
+  {% include '_payment.html' %}
+</div>
+
+
+{% endblock %}
+
+<script>
+
+  // temp js for populating the fields for tesing
+  
+</script>

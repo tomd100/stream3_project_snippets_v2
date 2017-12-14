@@ -1,0 +1,24 @@
+{% extends "base.html" %}
+{% load bootstrap_tags %}
+
+{% block title %}
+
+Registration Page
+
+{% endblock %}
+
+
+{% block content %}
+
+<h3>Please register below:</h3>
+
+<form method="POST">
+
+    {% csrf_token %}
+    
+    {{ form |as_bootstrap }}
+    
+    <button type="submit">Register</button>
+</form>
+
+{% endblock %}

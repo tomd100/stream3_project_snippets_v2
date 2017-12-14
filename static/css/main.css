@@ -1,0 +1,116 @@
+/*------------------------------------------------------*/
+/* Opening Page */
+
+#opening-page{
+    height:600px;
+    border:solid;
+    background-image: url("../images/pablo (1).png");
+    background-size: cover;
+    background-color: #cccccc;
+}
+
+/*------------------------------------------------------*/
+
+body{
+    margin-top: 65px;
+}
+
+#message_div{
+    position: absolute;
+}
+/*------------------------------------------------------*/
+/* Video List */
+
+.field_input_label{
+    margin:0px;
+}
+
+.field_input{
+    width: 300px;
+}
+
+#video_list_container{
+    border:solid;
+    border-width: thin;
+    max-height: 350px;
+    overflow-y:scroll;
+}
+
+.video_list_item{
+    margin-left:20px;
+    margin-right:20px;
+}
+
+/*------------------------------------------------------*/
+/* View Video */
+
+#player{
+    border:solid;
+    border-width: thin;
+    height: 450px;
+    width: 750px;
+}
+
+#snippet_list_container{
+    border:solid;
+    border-width: thin;
+    max-height: 350px;
+    overflow-y:scroll;
+}
+
+
+.list_item{
+    margin-left:20px;
+    margin-right:20px;
+}
+
+.snippet_controls{
+    border:solid;
+    border-width: thin;
+    height: 160px;
+    /*padding:10px;*/
+    /*margin-left:10px;*/
+    /*margin-right:0px;*/
+}
+
+.btn_plus{
+    background-color: Transparent;
+    background-repeat:no-repeat;
+    border: none;
+    cursor:pointer;
+    overflow: hidden;
+    outline:none;
+}
+
+/*------------------------------------------------------*/
+/* Snippet Controls */
+
+.snippet_title{
+    width:400px;
+}
+
+.snippet_markers{
+    width:60px;
+}
+
+
+a.snippet_links{
+    color: black;
+    text-decoration: none;    
+}
+
+a.snippet_links:link a.snippet_links:visited {
+    color: black;
+}
+
+a.snippet_links:hover{
+    color: red;
+}
+
+.set_label{
+    margin-right: 10px;
+}
+
+.set_button{
+    color:blue;
+}
