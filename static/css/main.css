@@ -51,20 +51,22 @@ body{
 }
 
 /*------------------------------------------------------*/
-/* View Video */
+/* Snippet List */
 
 #player{
     border:solid;
     border-width: thin;
     height: 450px;
     width: 750px;
+
 }
 
 #snippet_list_container{
-    border:solid;
+    border-top:solid;
     border-width: thin;
     max-height: 350px;
     overflow-y:scroll;
+    padding-top:10px;
 }
 
 
@@ -76,7 +78,7 @@ body{
 .snippet_controls{
     border:solid;
     border-width: thin;
-    height: 160px;
+    height: 140px;
     /*padding:10px;*/
     /*margin-left:10px;*/
     /*margin-right:0px;*/

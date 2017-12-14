@@ -25,11 +25,17 @@ class VideoCreateView(CreateView):
     
     def form_valid(self, form):
         self.object = form.save(commit=False)
-        self.object.user = self.request.user
         url = self.object.url
-        self.object.yt_id = getYouTubeId(url)
-        self.object.save()
-        return HttpResponseRedirect(reverse_lazy('video-list'))
+        yt_id = getYouTubeId(url)
+        if yt_id != -1:
+            self.object.yt_id = yt_id;
+            self.object.user = self.request.user
+            self.object.save()
+            return HttpResponseRedirect(reverse_lazy('video-list'))
+        else:
+            messages.success(self.request, "Not a valid YouTube URL", extra_tags='danger') 
+            return HttpResponseRedirect(reverse_lazy('video-add'))
+        
 
 #-------------------------------------------------------------------------------
 

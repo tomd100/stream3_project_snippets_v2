@@ -39,7 +39,7 @@ Snippet Page
         
         <input type="range" id="progress-bar" value="0">
         
-        <h3>Snippet Controls</h3> 
+        <h3>{{form.title.value }}</h3> 
     </div>
 </div>
 
@@ -49,9 +49,7 @@ Snippet Page
             
             {% csrf_token %}
             <p>
-                <h5>Title:</h5>
-                <!--<label for="title">Title: </label>-->
-                {{form.title }}
+                <h5>Controls:</h5>
             </p>
             <p>
                 <label class="set_label" for="start">Start Marker:</label>
