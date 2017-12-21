@@ -1,0 +1,49 @@
+{% extends 'base.html' %}
+{% load bootstrap_tags %}
+{% load staticfiles %}
+
+
+{% block title %}
+
+Snippet Page
+
+{% endblock %}
+
+{% block content %}
+
+<div class="col-md-8" >
+    <h3>{{ video.title }}</h3>
+    <div id="player"></div>
+</div>
+        
+<div class=" col-md-4">
+    <h3>Snippets List</h3>
+    <div id = 'snippet_list_container'>
+        <div class = 'list_item'>
+            {% for snippet in snippet_list %}
+                <p>
+                    <a href='{% url "snippet-edit" snippet.id %}'><i class="fa fa-pencil"></i></a>
+                    <a href='{% url "snippet-delete" snippet.id %}'><i class="fa fa-trash"></i></a>
+                    <a class='snippet_links' href='% url "snippet-detail" %'>{{ snippet.title }}</i></a>
+                </p>
+            {% endfor %}
+        </div>
+    </div>
+    <a href='{% url "snippet-add" %}'><i class="fa fa-plus"></i></a>
+</div>
+
+
+{% endblock %}
+
+{% block footerjs %}
+
+<script>
+
+    var videoid = '{{video.yt_id}}';
+    
+</script>
+
+<script src="{% static 'js/youtube.js' %}"></script>
+    
+{% endblock %}
+

@@ -16,11 +16,11 @@ Video Page
     
     <div id = 'video_list_container'>
         <div class = 'list_item'>
-            {% for video in object_list %}
+            {% for video in video_list %}
                 <p>
                     <a href='{% url "video-edit" video.id %}'><i class="fa fa-pencil"></i></a>
                     <a href='{% url "video-delete" video.id %}'><i class="fa fa-trash"></i></a>
-                    <a class='video_links' href='{% url "view_video" video.id %}'>{{ video.title }}</i></a>
+                    <a class='video_links' href='{% url "snippet-list" video.id %}'>{{ video.title }}</i></a>
                 </p>
             {% endfor %}
         </div>

@@ -1,4 +1,4 @@
 from django.contrib import admin
-from .models import SnippetItem
+from .models import Snippet
 
-admin.site.register(SnippetItem)
+admin.site.register(Snippet)

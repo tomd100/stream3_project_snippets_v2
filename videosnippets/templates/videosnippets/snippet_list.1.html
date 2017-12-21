@@ -22,20 +22,21 @@ Snippet Page
         <div class = 'list_item'>
             {% for snippet in snippets %}
                 <p>
-                    <a href='{% url "view_video" video.id snippet.id %}'><i class="fa fa-pencil"></i></a>
-                    <a href='{% url "delete_snippet" video.id snippet.id %}'><i class="fa fa-trash"></i></a>
-                    <a class='snippet_links' href='{% url "view_video" video.id snippet.id %}'>{{ snippet.title }}</i></a>
+                    <a href='{% url "snippet-edit" snippet.id %}'><i class="fa fa-pencil"></i></a>
+                    <a href='{% url "snippet-delete" snippet.id %}'><i class="fa fa-trash"></i></a>
+                    <!--<a class='snippet_links' href='[% url "snippet-list" video.id %]'>{{ snippet.title }}</i></a>-->
                 </p>
             {% endfor %}
         </div>
     </div>
-    <a href='{% url "view_video" video.id 0 %}'><i class="fa fa-plus"></i></a>
+    <a href='{% url "snippet-add" %}'><i class="fa fa-plus"></i></a>
 </div>
 
 
 <div class="row">
     <div class="col-md-8">
-        <h4>Progress</h4>
+        <span class='progress_text'>Current Position: </span><span id="current-time"></span>
+        <span class='progress_text'>Video Length: <span id="duration"></span></span>
         
         <input type="range" id="progress-bar" value="0">
         
@@ -43,8 +44,8 @@ Snippet Page
     </div>
 </div>
 
-<div class="col-md-10 snippet_controls">
-    <div class ="col-md-8">
+<div class='row '>
+    <div class="snippet_controls col-md-6">
         <form method="POST">
             
             {% csrf_token %}
@@ -53,24 +54,23 @@ Snippet Page
             </p>
             <p>
                 <label class="set_label" for="start">Start Marker:</label>
-                <button type="button" class="btn_plus set_button" onclick="setMarker(0)"><i class="fa fa-plus"></i></button>{{form.start}}
+                <button type="button" class="btn_plus set_button" onclick="setMarker(0)"><i class="fa fa-plus"></i></button><span class='marker_field'>{{form.start}}</span>
                 
                 <label class="set_label" for="end">End Marker:</label>
-                <button type="button" class="btn_plus set_button" onclick="setMarker(1)"><i class="fa fa-plus"></i></button>{{form.end}}
+                <button type="button" class="btn_plus set_button" onclick="setMarker(1)"><i class="fa fa-plus"></i></button><span class='marker_field'>{{form.end}}</span>
                 
                 <label class="set_label" for="jump">Jump Back:</label>
-                {{form.jump}}
+                <span class='marker_field'>{{form.jump}}</span>
             </p>
             <p>
-                <button type="submit" class="btn btn-info" formaction="{% url 'add_snippet' video.id snippet.id %}">Save</button>
+                <!--<button type="submit" class="btn btn-info" formaction="[% url 'snippet-list' video.id %]">Save</button>-->
                 <button type="button"  id="play_btn" class="btn btn-info" onclick="playSnippet()">Play</button>
                 <button type="button" class="btn btn-info" onclick="jumpBack()">Jump Back</button>
                 <button type="button" class="btn btn-info" onclick="playRestart()">Restart</button>
             </p>
         </form>
     </div>
-
-    <div class ="col-md-2" >
+    <div class='col-md-1 snippet_controls'>
         <form>
             <h5>Speed:</h5>
             <input type="radio" name="speed" onclick="setSpeed(1)" checked> Normal<br>
@@ -78,26 +78,12 @@ Snippet Page
             <input type="radio" name="speed" onclick="setSpeed(0.25)"> Slower
         </form>
     </div>
-
-    <div class ="col-md-2" >
+    <div class='col-md-1 snippet_controls'>        
         <form>
-            <h5>Loop Snippet:</h5>
+            <h5>Loop:</h5>
             <input type="checkbox" id='snippet_loop' name="loop"  unchecked> Loop<br>
         </form>
     </div>
-
-</div>
-
-<div class="snippet_controls col-md-2 ">
-    <h5>Player Information:</h5>
-    <p>
-        <label for="current-time">Current Position: </label>
-        <span id="current-time"></span>
-    </p>
-    <p>    
-        <label for="duration">Video Length: </label>
-        <span id="duration"></span>
-    </p>
 </div>
 
 

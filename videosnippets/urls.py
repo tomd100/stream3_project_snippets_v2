@@ -1,9 +1,10 @@
 from django.conf.urls import url
-from .views import view_video, add_snippet, delete_snippet
+from .views import *
 
 urlpatterns = [
-    url(r"^(\d+)$", view_video, name="view_video"),
-    url(r"^(\d+)/(\d+)$", view_video, name="view_video"),
-    url(r"^add/(\d+)/(\d+)$", add_snippet, name="add_snippet"),
-    url(r"^delete/(\d+)/(\d+)$", delete_snippet, name="delete_snippet"),
+    url(r'^(?P<pk>\d+)$', SnippetListView.as_view(), name='snippet-list'),
+    url(r'^$', SnippetDetailView.as_view(), name='snippet-detail'),
+    url(r'^add', SnippetCreateView.as_view(), name='snippet-add'),
+    url(r'^(?P<pk>\d+)/edit', SnippetUpdateView.as_view(), name='snippet-edit'),
+    url(r'^(?P<pk>\d+)/delete', SnippetDeleteView.as_view(), name='snippet-delete'),
 ]
