@@ -50,12 +50,6 @@ class VideoDeleteView(DeleteView):
     model = Video
     success_url = reverse_lazy('video-list')
 
-    # def post(self, request, *args, **kwargs):
-    #     if "cancel" in request.POST:
-    #         return HttpResponseRedirect(reverse_lazy('video-list'))
-    #     else:
-    #         return super(VideoDeleteView, self).post(request, *args, **kwargs)
-            
 #-------------------------------------------------------------------------------
 
 def getYouTubeId(url):

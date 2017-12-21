@@ -19,52 +19,42 @@ class SnippetListView(ListView):
     model = Snippet
     
     def get_context_data(self, **kwargs):
-        video_id = self.kwargs['pk']
+        video_id = self.kwargs['vid']
+        snippet_id = self.kwargs['sid']
         context = super(SnippetListView, self).get_context_data(**kwargs)
         context.update({
             'video': get_object_or_404(Video, pk=video_id),
         })
+        if int(snippet_id) > 0:
+            context.update({
+                'snippet': get_object_or_404(Snippet, pk=snippet_id),
+            })
         return context
         
     def get_queryset(self):
-        video_id = self.kwargs['pk']
+        video_id = self.kwargs['vid']
         self.video = get_object_or_404(Video, pk=video_id)
         return Snippet.objects.filter(video = self.video)
-    
-    
-    # paginate_by = 5
-
-    # def get_queryset(self):
-    #     print("query")
-    #     video_id = self.kwargs['pk']
-    #     self.video = get_object_or_404(Video, pk=video_id)
-    #     yt_id = self.video.yt_id
-    #     snippet_list = self.model.objects.filter(video = self.video)
-    #     return snippet_list
-        
-    
-    # def post:
-    #     video = get_object_or_404(Video, pk=video_id)
-    #     yt_id = video.yt_id;
-    #     snippets = Snippet.objects.filter(video_id = video.id)
-    #     if snippet_id == '0':
-    #         snippet = Snippet()
-    #         snippet.id = 0
-    #         form = SnippetForm(initial={'snippet': snippet, 'title':'', 'start': video.start, 'end': video.end, 'jump': '2'})
-    #     else:
-    #         snippet = get_object_or_404(Snippet, pk=snippet_id)
-    #         form = SnippetForm(initial={'title': snippet.title, 'start': snippet.start, 'end': snippet.end, 'jump': snippet.jump})
     
 #-------------------------------------------------------------------------------
 
 class SnippetDetailView(DetailView):
     model = Snippet
-    
+
 #-------------------------------------------------------------------------------
 
 class SnippetCreateView(CreateView):
     model = Snippet
-    fields = fields = ['title']
+    fields = ['title', 'video']
+
+    def get_initial(self):
+        return { 'video': self.kwargs['pk'] }
+
+    def get_success_url(self):
+        video_id = self.kwargs['pk']
+        snippet_id = self.object.id
+        success_url = reverse_lazy('snippet-list', args=(video_id, snippet_id))
+        return success_url    
 
 #-------------------------------------------------------------------------------
 
@@ -74,29 +64,23 @@ class SnippetUpdateView(UpdateView):
     
     def get_success_url(self):
         snippet = get_object_or_404(Snippet, pk=self.kwargs['pk']);
+        snippet_id = snippet.id
         video_id = snippet.video_id
-        success_url = reverse_lazy('snippet-list', args=(video_id,))
+        success_url = reverse_lazy('snippet-list', args=(video_id, snippet_id,))
         return success_url
 
 #-------------------------------------------------------------------------------
 
 class SnippetDeleteView(DeleteView):
-    pass
     model = Snippet
-    # success_url = reverse_lazy('snippet-list')
-
-    # def post(self, request, *args, **kwargs):
-    #     if "cancel" in request.POST:
-    #         return HttpResponseRedirect(reverse_lazy('snippet-list'))
-    #     else:
-    #         return super(SnippetDeleteView, self).post(request, *args, **kwargs)
 
     def get_success_url(self):
         snippet = get_object_or_404(Snippet, pk=self.kwargs['pk']);
+        snippet_id = 0
         video_id = snippet.video_id
-        success_url = reverse_lazy('snippet-list', args=(video_id,))
+        success_url = reverse_lazy('snippet-list', args=(video_id, snippet_id,))
         return success_url
-            
+
 #-------------------------------------------------------------------------------
 #-------------------------------------------------------------------------------
 

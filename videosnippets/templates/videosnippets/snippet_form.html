@@ -17,8 +17,12 @@ Snippet Page
         {% csrf_token %}
         
         {% for field in form %}
-            <label class="field_input_label">{{ field.label_tag }}</label>
-            <p id='snippet_field'>{{ field }}</p>
+            {% if field.name != 'video' %} 
+                <label class="field_input_label">{{ field.label_tag }}</label>
+                <p id='snippet_field'>{{ field }}</p>
+            {% else %}
+                <span hidden>{{field}}</span>
+            {% endif %}
         {% endfor %}
         
         <br>

@@ -20,7 +20,7 @@ Video Page
                 <p>
                     <a href='{% url "video-edit" video.id %}'><i class="fa fa-pencil"></i></a>
                     <a href='{% url "video-delete" video.id %}'><i class="fa fa-trash"></i></a>
-                    <a class='video_links' href='{% url "snippet-list" video.id %}'>{{ video.title }}</i></a>
+                    <a class='video_links' href='{% url "snippet-list" video.id 0 %}'>{{ video.title }}</i></a>
                 </p>
             {% endfor %}
         </div>
