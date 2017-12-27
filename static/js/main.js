@@ -1,8 +1,33 @@
 // -----------------------------------------------------------------------------
-// video categories
+// Snippet Controls
 
 
+function snippetControl(){
+    // document.getElementById('snippet_list_div').style.display = 'none';  
+    // document.getElementById('snippet_control_div').style.display = 'block'; 
+    
+    console.log(document.getElementById('snippet_list_div').value)
+    
+    // $("#snippet_list_div").change(function () {
+    //   var username = $(this).val();
 
+    //   $.ajax({
+    //     url: '/ajax/validate_username/',
+    //     data: {
+    //       'username': username
+    //     },
+    //     dataType: 'json',
+    //     success: function (data) {
+    //       if (data.is_taken) {
+    //         alert("A user with this username already exists.");
+    //       }
+    //     }
+    //   });
+
+    // });    
+    
+    return false
+}
 
 
 // -----------------------------------------------------------------------------

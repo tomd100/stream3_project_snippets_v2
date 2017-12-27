@@ -1,0 +1,16 @@
+
+<div class=" col-md-4">
+    <h3>Snippets List</h3>
+    <div id = 'snippet_list_container'>
+        <div class = 'list_item'>
+            {% for snippet in snippet_list %}
+                <p>
+                    <a href='{% url "snippet-edit" snippet.id %}'><i class="fa fa-pencil"></i></a>
+                    <a href='{% url "snippet-delete" snippet.id %}'><i class="fa fa-trash"></i></a>
+                    <a class='snippet_links' onclick='snippetControl()' href='#'>{{ snippet.title }}</i></a>
+                </p>
+            {% endfor %}
+        </div>
+    </div>
+    <a href='{% url "snippet-add" video.id %}'><i class="fa fa-plus"></i></a>
+</div>
