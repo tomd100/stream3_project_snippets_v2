@@ -42,7 +42,7 @@ Snippet Page
 
 <script>
 
-$("#click_btn").click(function(event) {
+$(".snippet_links").click(function(event) {
     event.preventDefault();
     var target = $(this).attr("href");
     $("#json_display").load(target, function(responseTxt, statusTxt, xhr){
