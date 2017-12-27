@@ -71,44 +71,6 @@ def get_snippet_title(request, snippet_id):
     }
     return JsonResponse(data, safe=False)
 
-# from django.http import JsonResponse
-# from django.views.generic.detail import BaseDetailView
-
-# class JSONResponseMixin:
-#     def render_to_json_response(self, context, **response_kwargs):
-#         return JsonResponse(
-#             self.get_data(context),
-#             **response_kwargs
-#         )
-
-#     def get_data(self, context):
-#         return context
-
-# class SnippetDetailView(JSONResponseMixin, BaseDetailView):
-#     model = Snippet
-#     form_class = SnippetDetailForm
-#     template_name = 'videosnippets/snippet_test.html'
-#     print('top level2')
-    
-#     def render_to_response(self, context, **response_kwargs):
-#         return self.render_to_json_response(context, **response_kwargs)
-
-# class SnippetDetailView(JSONDetailView):
-#     model = Snippet
-#     form_class = SnippetDetailForm
-#     template_name = 'videosnippets/snippet_test.html'
-#     print('top level')
-    
-    
-    # def get_initial(self):
-    #     return { 'video': self.kwargs['pk'] }
-    
-    # def get_success_url(self):
-    #     video_id = self.kwargs['pk']
-    #     snippet_id = self.object.id
-    #     success_url = reverse_lazy('snippet-list', args=(video_id, snippet_id))
-    #     return success_url    
-        
 #-------------------------------------------------------------------------------
 #-------------------------------------------------------------------------------
 

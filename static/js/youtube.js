@@ -55,8 +55,8 @@ function initialize(){
 
 function checkLoopStatus() {
     var loop = document.getElementById('snippet_loop').checked;
-    var start = parseFloat(document.getElementById('id_start').value);
-    var end = parseFloat(document.getElementById('id_end').value);
+    var start = parseFloat(document.getElementById('snippet_start').value);
+    var end = parseFloat(document.getElementById('snippet_end').value);
     var current = (player.getCurrentTime());
     
     if (loop) {
@@ -131,7 +131,7 @@ function pauseVideo() {
 }
 
 function playSnippet() {
-    var start = parseFloat(document.getElementById('id_start').value)
+    var start = parseFloat(document.getElementById('snippet_start').value)
     var current = player.getCurrentTime()
     if (current > start){
         player.seekTo(current);
@@ -142,7 +142,7 @@ function playSnippet() {
 }
 
 function jumpBack(){
-    var seconds = parseFloat(document.getElementById('id_jump').value)
+    var seconds = parseFloat(document.getElementById('snippet_jump').value)
     console.log(seconds)
     var current, back;
     current = player.getCurrentTime()
@@ -153,7 +153,7 @@ function jumpBack(){
 }    
 
 function playRestart(){
-    var start = parseFloat(document.getElementById('id_start').value)
+    var start = parseFloat(document.getElementById('snippet_start').value)
     player.seekTo(start);
 }
 
@@ -163,9 +163,9 @@ function setMarker(type) {
     var current = Number((player.getCurrentTime()).toFixed(1));
     var tag;
     if (type == 0){
-        tag = document.getElementById('id_start')
+        tag = document.getElementById('snippet_start')
     }else{
-        tag = document.getElementById('id_end')
+        tag = document.getElementById('snippet_end')
     }
     tag.value = current
 }
