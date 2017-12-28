@@ -1,15 +1,16 @@
 from django.shortcuts import render, reverse, redirect, get_object_or_404, HttpResponseRedirect
 from django.contrib.auth.decorators import login_required
 from django.contrib import messages
-import re
-
+from django.urls import reverse_lazy
+from django.http import JsonResponse
+# from django.template.loader import render_to_string
 from django.views.generic import ListView, DetailView, CreateView, UpdateView, DeleteView, FormView
+
+import re
 
 from .models import Snippet
 from videos.models import Video
 from .forms import SnippetDetailForm
-
-from django.urls import reverse_lazy
 
 #-------------------------------------------------------------------------------
 
@@ -37,29 +38,6 @@ class SnippetListView(ListView):
         return Snippet.objects.filter(video = self.video)
     
 #-------------------------------------------------------------------------------
-#-------------------------------------------------------------------------------
-
-# from django.template.loader import render_to_string
-
-# if request.is_ajax():
-#     html = render_to_string('frontend/scroll.html', {'dishes': dishes})
-#     return HttpResponse(html)
-
-
-
-from django.http import JsonResponse
-from .forms import SnippetDetailForm
-from django.template.loader import render_to_string
-
-
-# def book_create(request):
-#     form = BookForm()
-#     context = {'form': form}
-#     html_form = render_to_string('videosnippets/snippet_test.html',
-#         context,
-#         request=request,
-#     )
-#     return JsonResponse({'html_form': html_form})
 
 def get_snippet_title(request, snippet_id):
     snippet = get_object_or_404(Snippet, pk=snippet_id)
@@ -72,18 +50,19 @@ def get_snippet_title(request, snippet_id):
     return JsonResponse(data, safe=False)
 
 #-------------------------------------------------------------------------------
-#-------------------------------------------------------------------------------
 
 class SnippetCreateView(CreateView):
     model = Snippet
-    fields = ['title']
-    
+    fields = ['title', 'video']
+
+    def get_initial(self):
+        return { 'video': self.kwargs['pk'] }
+ 
     def get_success_url(self):
-        snippet = get_object_or_404(Snippet, pk=self.kwargs['pk']);
-        snippet_id = snippet.id
-        video_id = snippet.video_id
-        success_url = reverse_lazy('snippet-list', args=(video_id, snippet_id,))
-        return success_url
+        video_id = self.kwargs['pk']
+        snippet_id = self.object.id
+        success_url = reverse_lazy('snippet-list', args=(video_id, snippet_id))
+        return success_url    
 
 #-------------------------------------------------------------------------------
 
