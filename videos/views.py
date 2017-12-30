@@ -19,7 +19,11 @@ class VideoListView(ListView):
     model = Video
 
     def get_context_data(self, **kwargs):
+        category_id = self.kwargs['cid']
+        category_id = int(category_id)
         context = super(VideoListView, self).get_context_data(**kwargs)
+        if category_id > 0:
+            context['video_list'] = Video.objects.all().filter(category=category_id)
         context.update({
             'videocategory_list': VideoCategory.objects.all(),
         })
@@ -28,8 +32,6 @@ class VideoListView(ListView):
     def get_queryset(self):
         self.videocategory = VideoCategory.objects.all()
         return Video.objects.all()
-
-
 
 #-------------------------------------------------------------------------------
 

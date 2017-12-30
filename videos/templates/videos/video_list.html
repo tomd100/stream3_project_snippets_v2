@@ -19,7 +19,7 @@ Video Page
                 <p>
                     <a href='{% url "videocategory-edit" category.id %}'><i class="fa fa-pencil"></i></a>
                     <a href='{% url "videocategory-delete" category.id %}'><i class="fa fa-trash"></i></a>
-                    <a class='video_links' href=''>{{ category }}</i></a>
+                    <a class='video_links' href='{% url "video-list" category.id %}'>{{ category }}</i></a>
                 </p>
             {% endfor %}
         </div>
