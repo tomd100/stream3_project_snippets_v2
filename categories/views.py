@@ -22,20 +22,20 @@ class VideoCategoryListView(ListView):
 class VideoCategoryCreateView(CreateView):
     model = VideoCategory
     fields = ['category']
-    success_url = reverse_lazy('video-list')
+    success_url = reverse_lazy('video-list', kwargs={'cid': 0})
     
 #-------------------------------------------------------------------------------
 
 class VideoCategoryUpdateView(UpdateView):
     model = VideoCategory
     fields = ['category']
-    success_url = reverse_lazy('video-list')
+    success_url = reverse_lazy('video-list', kwargs={'cid': 0})
     
 #-------------------------------------------------------------------------------    
 
 class VideoCategoryDeleteView(DeleteView):
     model = VideoCategory
-    success_url = reverse_lazy('video-list')
+    success_url = reverse_lazy('video-list', kwargs={'cid': 0})
 
 #-------------------------------------------------------------------------------
 #-------------------------------------------------------------------------------

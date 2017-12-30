@@ -6,7 +6,7 @@ from categories.views import VideoCategory
 
 class Video(models.Model):
     user = models.ForeignKey('auth.User')
-    category = models.ForeignKey(VideoCategory, on_delete=models.SET_DEFAULT, default='General')
+    category = models.ForeignKey(VideoCategory, on_delete=models.SET_DEFAULT, default=0)
     # category = models.CharField(max_length=500, blank=True)
     title = models.CharField(max_length=500, blank=False)
     url = models.URLField(max_length=500, blank=False)

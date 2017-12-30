@@ -144,7 +144,9 @@ function pauseVideo() {
 
 function playSnippet() {
     var start = parseFloat(document.getElementById('id_start').value)
+    console.log(start)
     var current = player.getCurrentTime()
+    console.log(current)
     if (current > start){
         player.seekTo(current);
     }else{
