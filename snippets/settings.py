@@ -48,6 +48,7 @@ INSTALLED_APPS = [
     'accounts',
     'subscribe',
     'videos',
+    'categories',
     'videosnippets',
 ]
 

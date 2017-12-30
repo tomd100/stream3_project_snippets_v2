@@ -1,18 +1,11 @@
 from django.forms import ModelForm
-from .models import Video, VideoCategory
+from .models import Video
 
 #-------------------------------------------------------------------------------
 
 class VideoForm(ModelForm):
     class Meta:
         model = Video
-        fields = ['title', 'url']
+        fields = ['title', 'category', 'url']
 
 #-------------------------------------------------------------------------------
-
-# class VideoCategoryForm(ModelForm):
-#     class Meta:
-#         model = VideoCategory
-#         fields = ['category']
-        
-#-------------------------------------------------------------------------------        

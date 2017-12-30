@@ -6,9 +6,9 @@ import re
 
 from django.views.generic import ListView, DetailView, CreateView, UpdateView, DeleteView
 
-from .models import Video, VideoCategory
+from .models import Video
 from .forms import VideoForm
-# , VideoCategoryForm
+from categories.models import VideoCategory
 
 from django.urls import reverse_lazy
 
@@ -17,13 +17,25 @@ from django.urls import reverse_lazy
 
 class VideoListView(ListView):
     model = Video
-    # paginate_by = 5
+
+    def get_context_data(self, **kwargs):
+        context = super(VideoListView, self).get_context_data(**kwargs)
+        context.update({
+            'videocategory_list': VideoCategory.objects.all(),
+        })
+        return context
+        
+    def get_queryset(self):
+        self.videocategory = VideoCategory.objects.all()
+        return Video.objects.all()
+
+
 
 #-------------------------------------------------------------------------------
 
 class VideoCreateView(CreateView):
     model = Video
-    fields = ['title', 'url']
+    fields = ['title', 'category', 'url']
     
     def form_valid(self, form):
         self.object = form.save(commit=False)
@@ -43,7 +55,7 @@ class VideoCreateView(CreateView):
 
 class VideoUpdateView(UpdateView):
     model = Video
-    fields = ['title', 'url']
+    fields = ['title', 'category', 'url']
     success_url = reverse_lazy('video-list')
     
 #-------------------------------------------------------------------------------
@@ -64,31 +76,4 @@ def getYouTubeId(url):
         yt_id = str(url3[0])
         return  yt_id
         
-#-------------------------------------------------------------------------------
-#-------------------------------------------------------------------------------
-# Category Views
-
-class VideoCategoryListView(ListView):
-    model = VideoCategory
-
-#-------------------------------------------------------------------------------
-
-class VideoCategoryCreateView(CreateView):
-    model = VideoCategory
-    fields = ['category']
-
-#-------------------------------------------------------------------------------
-
-class VideoCategoryUpdateView(UpdateView):
-    model = VideoCategory
-    fields = ['Category']
-    success_url = reverse_lazy('video-list')
-    
-#-------------------------------------------------------------------------------    
-
-class VideoCategoryDeleteView(DeleteView):
-    model = VideoCategory
-    success_url = reverse_lazy('video-list')
-
-#-------------------------------------------------------------------------------
 #-------------------------------------------------------------------------------

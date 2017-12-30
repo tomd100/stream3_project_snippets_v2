@@ -37,6 +37,14 @@ body{
     padding-top:10px;
 }
 
+#category_list_container{
+    border-top:solid;
+    border-width: thin;
+    max-height: 350px;
+    overflow-y:scroll;
+    padding-top:10px;
+}
+
 .video_list_item{
     margin-left:20px;
     margin-right:20px;
