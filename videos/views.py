@@ -6,12 +6,14 @@ import re
 
 from django.views.generic import ListView, DetailView, CreateView, UpdateView, DeleteView
 
-from .models import Video
+from .models import Video, VideoCategory
 from .forms import VideoForm
+# , VideoCategoryForm
 
 from django.urls import reverse_lazy
 
 #-------------------------------------------------------------------------------
+# Video Views
 
 class VideoListView(ListView):
     model = Video
@@ -62,4 +64,31 @@ def getYouTubeId(url):
         yt_id = str(url3[0])
         return  yt_id
         
-#-------------------------------------------------------------------------------            
+#-------------------------------------------------------------------------------
+#-------------------------------------------------------------------------------
+# Category Views
+
+class VideoCategoryListView(ListView):
+    model = VideoCategory
+
+#-------------------------------------------------------------------------------
+
+class VideoCategoryCreateView(CreateView):
+    model = VideoCategory
+    fields = ['category']
+
+#-------------------------------------------------------------------------------
+
+class VideoCategoryUpdateView(UpdateView):
+    model = VideoCategory
+    fields = ['Category']
+    success_url = reverse_lazy('video-list')
+    
+#-------------------------------------------------------------------------------    
+
+class VideoCategoryDeleteView(DeleteView):
+    model = VideoCategory
+    success_url = reverse_lazy('video-list')
+
+#-------------------------------------------------------------------------------
+#-------------------------------------------------------------------------------

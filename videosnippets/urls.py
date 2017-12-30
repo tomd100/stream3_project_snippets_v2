@@ -6,5 +6,6 @@ urlpatterns = [
     url(r'^add/(?P<pk>\d+)', SnippetCreateView.as_view(), name='snippet-add'),
     url(r'^edit/(?P<pk>\d+)', SnippetUpdateView.as_view(), name='snippet-edit'),
     url(r'^delete/(?P<pk>\d+)', SnippetDeleteView.as_view(), name='snippet-delete'),
-    url(r'^detail/(\d+)', get_snippet_title, name='snippet-detail'),
+    url(r'^control/(\d+)', snippet_control, name='snippet-control'),
+    url(r'^save/(\d+)', snippet_save),
 ]

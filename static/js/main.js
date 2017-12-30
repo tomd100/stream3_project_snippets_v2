@@ -2,31 +2,25 @@
 // Snippet Controls
 
 
-function snippetControl(){
-    // document.getElementById('snippet_list_div').style.display = 'none';  
-    // document.getElementById('snippet_control_div').style.display = 'block'; 
+function controlToggle(){
+    var list_div = document.getElementById('snippet_list_div')
+    var control_div = document.getElementById('snippet_control_div')
+    resetVideo()
     
-    console.log(document.getElementById('snippet_list_div').value)
-    
-    // $("#snippet_list_div").change(function () {
-    //   var username = $(this).val();
-
-    //   $.ajax({
-    //     url: '/ajax/validate_username/',
-    //     data: {
-    //       'username': username
-    //     },
-    //     dataType: 'json',
-    //     success: function (data) {
-    //       if (data.is_taken) {
-    //         alert("A user with this username already exists.");
-    //       }
-    //     }
-    //   });
-
-    // });    
-    
-    return false
+    if (list_div.classList.contains('tmp')){
+        list_div.classList.remove('tmp');
+        control_div.classList.add('tmp');
+        
+        list_div.style.display = 'none';
+        control_div.style.display = 'block'
+    }else{
+        control_div.classList.remove('tmp');
+        list_div.classList.add('tmp');
+        
+        control_div.style.display = 'none';
+        list_div.style.display = 'block'
+    }
+    return 
 }
 
 

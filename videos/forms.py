@@ -1,5 +1,5 @@
 from django.forms import ModelForm
-from .models import Video
+from .models import Video, VideoCategory
 
 #-------------------------------------------------------------------------------
 
@@ -9,3 +9,10 @@ class VideoForm(ModelForm):
         fields = ['title', 'url']
 
 #-------------------------------------------------------------------------------
+
+# class VideoCategoryForm(ModelForm):
+#     class Meta:
+#         model = VideoCategory
+#         fields = ['category']
+        
+#-------------------------------------------------------------------------------        

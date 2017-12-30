@@ -12,35 +12,56 @@ Snippet Page
 {% endblock %}
 
 {% block content %}
-
-<div class="col-md-8" >
-    <h3>{{ video.title }}</h3>
-    <div id="player"></div>
-</div>
-
-<div id='snippet_list_div'>
-    {% include 'videosnippets/_snippet_list.html' %}
-</div>
-<!----------------------------------------------------------------------------->
-<!--Snippet Control Section-->
-
-<div id='snippet_control_div' >
-    {% include 'videosnippets/_snippet_detail.html' %}
-</div>
-
 <!----------------------------------------------------------------------------->
 
-<a id="click_btn" href = {% url "snippet-detail" 12 %} >
-   Click here
-</a>
+<div class="container">
+    <div class='row'>
+        <div class="col-md-8" >
+            <h3>{{ video.title }}</h3>
+            <div id="player"></div>
+        </div>
+
+        <div class="col-md-4" >
+            <!--Snippet List Section-->
+            <div class='tmp' id='snippet_list_div'>
+                {% include 'videosnippets/_snippet_list.html' %}
+            </div>
+        
+            <!--Snippet Control Section-->
+            <div hidden id='snippet_control_div' >
+                {% include 'videosnippets/_snippet_control.html' %}
+            </div>
+        </div>
+    </div>   
+</div>   
+ 
+<!----------------------------------------------------------------------------->
+
+<div class="row">
+    <div class="col-md-8">
+        <span class='progress_text'>Current Position: </span><span id="current-time"></span>
+        <span class='progress_text'>Video Length: <span id="duration"></span></span>
+        
+        <input type="range" id="progress-bar" value="0">
+        
+    </div>
+</div>
+
+<!----------------------------------------------------------------------------->
+
 <div hidden id='json_display'></div>
 
 <!----------------------------------------------------------------------------->
 {% endblock %}
 
+<!----------------------------------------------------------------------------->
+<!----------------------------------------------------------------------------->
+
 {% block footerjs %}
 
 <script>
+
+// snippet control view
 
 $(".snippet_links").click(function(event) {
     event.preventDefault();
@@ -48,15 +69,60 @@ $(".snippet_links").click(function(event) {
     $("#json_display").load(target, function(responseTxt, statusTxt, xhr){
         if(statusTxt == "success")
             obj = JSON.parse(responseTxt);
-            $('#snippet_title').html(obj.title);
-            $("#snippet_start").attr("value", obj.start);
-            $("#snippet_end").attr("value", obj.end);
-            $("#snippet_jump").attr("value", obj.jump);
+            url = '/snippets/save/' + obj.id
+            $('#snippet_save').attr('action', url);
+            
+            $('#snippet_id_display').html(obj.id);
+            $('#snippet_id').html(url);
+            $('#id_title_display').html(obj.title);
+            $('#id_title_display').attr("value", obj.title);
+            
+            $('#id_title').html(obj.title);
+            $('#id_title').attr("value", obj.title);
+            
+            $("#id_start").attr("value", obj.start);
+            $("#id_start").val(obj.start);
+            $("#id_end").attr("value", obj.end);
+            $("#id_end").val(obj.end);
+            $("#id_jump").attr("value", obj.jump);
+            $("#id_jump").val(obj.jump);
         if(statusTxt == "error")
             alert("Error: " + xhr.status + ": " + xhr.statusText);
     });
 });
 
+//------------------------------------------------------------------------------
+// snippet save process
+
+// $('#snippet_save').on('submit', function(event){
+//     event.preventDefault();
+//     console.log("form submitted!")  // sanity check
+//     create_post();
+// });
+
+// function create_post() {
+//     console.log("create post is working!") // sanity check
+//     var formData =  $("#snippet_save").serializeArray()
+//     console.log('here');
+//     $.ajax({
+//         type : "POST", // http method
+//         data: formData,
+//         success : function(json) {
+//             // $('#post-text').val(''); // remove the value from the input
+//             console.log(json); // log the returned json to the console
+//             console.log("success"); // another sanity check
+//         },
+//         // handle a non-successful response
+//         error : function(xhr,errmsg,err) {
+//             $('#results').html("<div class='alert-box alert radius' data-alert>Oops! We have encountered an error: "+errmsg+
+//                 " <a href='#' class='close'>&times;</a></div>"); // add the error to the dom
+//             console.log(xhr.status + ": " + xhr.responseText); // provide a bit more info about the error to the console
+//         }
+//     });
+// };
+
+
+//------------------------------------------------------------------------------
 </script>
 
 
