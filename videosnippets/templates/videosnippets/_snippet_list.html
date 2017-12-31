@@ -15,3 +15,20 @@
 </div>
 <a href='{% url "snippet-add" video.id %}'><i class="fa fa-plus"></i></a>
 
+<br><br>
+<div class='col-md-12 snippet_controls3'>
+    <p>
+        <button onclick='videoReturn()' type="button" class="btn btn-info" >Return</button>
+    </p> 
+</div>
+
+window.onload = checkURLHistory();
+
+<script>
+function videoReturn(){
+    var video_url = localStorage.getItem("video_url");
+    window.location.href = video_url;
+    return
+}
+</script>
+

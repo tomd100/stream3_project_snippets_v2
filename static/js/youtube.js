@@ -144,9 +144,7 @@ function pauseVideo() {
 
 function playSnippet() {
     var start = parseFloat(document.getElementById('id_start').value)
-    if (start == 0){
-        start = 0.01
-    }
+    start = start + 0.01
     var current = player.getCurrentTime()
     if (current > start){
         player.playVideo();
@@ -157,7 +155,6 @@ function playSnippet() {
 
 function jumpBack(){
     var seconds = parseFloat(document.getElementById('id_jump').value)
-    console.log(seconds)
     var current, back;
     current = player.getCurrentTime()
     if (current - seconds >= 0) {

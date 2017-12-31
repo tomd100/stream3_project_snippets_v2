@@ -44,5 +44,16 @@ Video Page
     <a href='{% url "video-add"%}'><i class="fa fa-plus"></i></a>
 </div>
 
+<script>
+window.onload = checkURLHistory();
+
+function checkURLHistory(){
+    var video_url = window.location.href 
+    localStorage.setItem("video_url", video_url);
+    console.log(video_url)
+    return
+}
+</script>
+
 {% endblock %}
 
