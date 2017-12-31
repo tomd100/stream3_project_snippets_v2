@@ -19,7 +19,7 @@ Video Page
                 <p>
                     <a href='{% url "videocategory-edit" category.id %}'><i class="fa fa-pencil"></i></a>
                     <a href='{% url "videocategory-delete" category.id %}'><i class="fa fa-trash"></i></a>
-                    <a class='video_links' href='{% url "video-list" category.id %}'>{{ category }}</i></a>
+                    <a class='video_links' href='{% url "video-list" category.id %}'>{{ category }}</a>
                 </p>
             {% endfor %}
         </div>
@@ -36,7 +36,7 @@ Video Page
                 <p>
                     <a href='{% url "video-edit" video.id %}'><i class="fa fa-pencil"></i></a>
                     <a href='{% url "video-delete" video.id %}'><i class="fa fa-trash"></i></a>
-                    <a class='video_links' href='{% url "snippet-list" video.id 0 %}'>{{ video.title }}</i></a>
+                    <a class='video_links' href='{% url "snippet-list" video.id 0 %}'>{{ video.title }}</a>
                 </p>
             {% endfor %}
         </div>

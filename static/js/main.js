@@ -1,6 +1,6 @@
+
 // -----------------------------------------------------------------------------
 // Snippet Controls
-
 
 function controlToggle(){
     var list_div = document.getElementById('snippet_list_div')
@@ -22,7 +22,6 @@ function controlToggle(){
     }
     return 
 }
-
 
 // -----------------------------------------------------------------------------
 // subscription form

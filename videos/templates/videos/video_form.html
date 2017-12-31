@@ -12,7 +12,10 @@ Video Page
 {% block content %}
 
 <div class='col-md-6'>
-    <h3>Add Video</h3>
+
+    <h3><span id='add_edit'>Add</span> Video</h3>
+    <script>$('#add_edit').html(($(location).attr('href').search('/edit/') > 0) ? 'Edit' : 'Add');</script>
+    
 
     <form id="video_form" method ='POST' enctype="multipart/form-data" >
         {% csrf_token %}
