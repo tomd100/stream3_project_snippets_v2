@@ -10,6 +10,7 @@
 }
 
 /*------------------------------------------------------*/
+/* Base html */
 
 body{
     margin-top: 65px;
@@ -19,7 +20,18 @@ body{
     position: absolute;
 }
 /*------------------------------------------------------*/
-/* Video List */
+/* Login page */
+
+#id_username, #id_password{
+    width:300px;
+}
+
+#id_email, #id_password1, #id_password2{
+    width:300px;
+}
+
+/*------------------------------------------------------*/
+/* Video page */
 
 .field_input_label{
     margin:0px;
@@ -63,10 +75,16 @@ a.video_links{
     text-decoration: none;    
 }
 /*------------------------------------------------------*/
-/*------------------------------------------------------*/
-/* Snippet List */
+/* Category page */
 
-#player{
+#id_category{
+    width:300px;
+}
+
+/*------------------------------------------------------*/
+/* Snippet page */
+
+#yt_player{
     border:solid;
     border-width: thin;
     height: 450px;

@@ -13,7 +13,7 @@ firstScriptTag.parentNode.insertBefore(tag, firstScriptTag);
 
 var player;
 function onYouTubeIframeAPIReady() {
-    player = new YT.Player('player', {
+    player = new YT.Player('yt_player', {
     height: '390',
     width: '640',
     videoId: videoid,
@@ -50,7 +50,6 @@ function initialize(){
         updateTimerDisplay();
         updateProgressBar();
     }, 1000)
-
 }
 
 function checkLoopStatus() {
@@ -61,7 +60,7 @@ function checkLoopStatus() {
     
     if (loop) {
         if (end <= start) {
-            // error message
+            alert('Cannot loop: end time less than start time')
             document.getElementById('snippet_loop').checked = false
         } else if (current >= end){
             player.seekTo(start)
@@ -144,13 +143,16 @@ function pauseVideo() {
 
 function playSnippet() {
     var start = parseFloat(document.getElementById('id_start').value)
-    start = start + 0.01
     var current = player.getCurrentTime()
+    if (start <= 0){
+        start = 0.01
+    }
     if (current > start){
-        player.playVideo();
+        player.seekTo(current);
     }else{
         player.seekTo(start);
     }
+    player.playVideo();
 }
 
 function jumpBack(){
@@ -185,6 +187,30 @@ function setMarker(type) {
 function setSpeed(val) {
     player.setPlaybackRate(val)
 }
+
+// -----------------------------------------------------------------------------
+// Full screen process
+
+// function onYouTubeIframeAPIReadyFS() {
+//     player = new YT.Player('yt_player', {
+//     height: '585',
+//     width: '960',
+//     videoId: videoid,
+//     playerVars: {rel: 0, 'controls': 0},
+//     events: {
+//         'onReady': initialize,
+//         'onStateChange': onPlayerStateChange
+//       }
+//     });
+// }
+
+// function fullScreen(){
+//     player.pauseVideo();
+//     document.getElementById('yt_player2').id = 'yt_player';
+//     document.getElementById('yt_player').id = 'yt_player1';
+//     onYouTubeIframeAPIReadyFS()
+//     return
+// }
 
 // -----------------------------------------------------------------------------
 // Button Toggle
