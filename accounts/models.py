@@ -5,12 +5,14 @@ from django.dispatch import receiver
 from django.utils import timezone
 from django import forms
 
+from subscribe.models import Subscription
+
 #-------------------------------------------------------------------------------
 
 class UserProfile(models.Model):
     user = models.OneToOneField(User, on_delete=models.CASCADE, related_name="profile")
     image = models.ImageField(upload_to="avatars", blank=True, null=True)
-    sub_type = models.IntegerField(blank=False, default=0)
+    sub_type = models.IntegerField(default=0)
     sub_start_date=models.DateField(blank=False, default=timezone.now)
     sub_nextreset_date=models.DateField(blank=False, default=timezone.now)
 

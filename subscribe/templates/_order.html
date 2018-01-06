@@ -4,16 +4,17 @@
 <h3>Subscription Type</h3>
 
 <div>
-    <p id='sub_selection'> {{subscription_form.select_sub}}</p>
+    <p id='sub_selection_para'> {{subscription_form.select_sub}}</p>
 </div>    
 <form id="subscription_form" ">
 
     {% csrf_token %}
     
     <p hidden id='sub_type'>{{ subscription_form.type }}</p>
-    
+    <p hidden id='sub_desc'>{{ subscription_form.description }}</p>
+
     <div>
-        <button id='sub_selection_button' type='button' onclick='showCheckout()' class='btn btn-primary'>Continue</button>
+        <button disabled id='sub_selection_button' type='button' onclick='showCheckout(1)' class='btn btn-primary'>Continue</button>
     </div>
 </form>
 
