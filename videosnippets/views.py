@@ -81,8 +81,6 @@ def snippet_save(request, snippet_id):
     video = get_object_or_404(Video, pk=video_id);
     if request.method == 'POST':
         form = SnippetSaveForm(request.POST, instance = snippet)
-        print(form)
-        print(video_id, snippet_id)
         if form.is_valid():
             print('saving')
             snippet = form.save(commit = False);

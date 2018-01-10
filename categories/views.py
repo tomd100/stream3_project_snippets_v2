@@ -14,15 +14,25 @@ from django.urls import reverse_lazy
 #-------------------------------------------------------------------------------
 # Category Views
 
-class VideoCategoryListView(ListView):
-    model = VideoCategory
+class OwnObjectsMixin():
+    def get_queryset(self):
+        user = self.request.user
+        return super(OwnObjectsMixin, self).get_queryset().filter(user=user)
 
+class VideoCategoryListView(OwnObjectsMixin, ListView):
+    model = VideoCategory
+        
 #-------------------------------------------------------------------------------
 
 class VideoCategoryCreateView(CreateView):
     model = VideoCategory
     fields = ['category']
     success_url = reverse_lazy('video-list', kwargs={'cid': 0})
+    
+    def form_valid(self, form):
+        obj = form.save(commit=False)
+        obj.user = self.request.user
+        return super(VideoCategoryCreateView, self).form_valid(form)
     
 #-------------------------------------------------------------------------------
 

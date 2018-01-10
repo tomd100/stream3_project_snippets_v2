@@ -5,7 +5,7 @@ from django.dispatch import receiver
 from django.utils import timezone
 from django import forms
 
-from subscribe.models import Subscription
+# from subscribe.models import Subscription
 
 #-------------------------------------------------------------------------------
 
