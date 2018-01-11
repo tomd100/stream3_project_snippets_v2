@@ -155,17 +155,15 @@ DEFAULT_FILE_STORAGE = 'custom_storages.MediaStorage'
 
 
 STATICFILES_DIRS = (os.path.join(BASE_DIR, "static"),)
-MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
-
 STATIC_URL = '/static/'
 STATICFILES_LOCATION='static'
 STATICFILES_STORAGE='custom_storages.StaticStorage'
 
+MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
 MEDIA_URL = '/media/'
-MDEIAFILES_STORAGE = 'custom_storages.MediaStorage'
-
 MEDIAFILES_LOCATION = 'media'
-# MEDIA_URL = "https://%s/%s/" % (AWS_S3_CUSTOM_DOMAIN, MEDIAFILES_LOCATION)
+MDEIAFILES_STORAGE = 'custom_storages.MediaStorage'
+MEDIA_URL = "https://%s/%s/" % (AWS_S3_CUSTOM_DOMAIN, MEDIAFILES_LOCATION)
 
 MESSAGE_STORAGE = 'django.contrib.messages.storage.session.SessionStorage'
 
