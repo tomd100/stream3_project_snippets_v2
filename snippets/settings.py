@@ -29,6 +29,7 @@ DEBUG = True
 ALLOWED_HOSTS = [
 'stream3-project-snippets-tomd100.c9users.io',
 'stream3-project-snippets-v2-tomd100.c9users.io',
+'stream-3-snippets.herokuapp.com'
 ]
 
 AUTHENTICATION_BACKENDS = [
