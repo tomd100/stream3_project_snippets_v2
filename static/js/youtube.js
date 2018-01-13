@@ -13,11 +13,25 @@ firstScriptTag.parentNode.insertBefore(tag, firstScriptTag);
 
 var player;
 function onYouTubeIframeAPIReady() {
-    player = new YT.Player('yt_player', {
+    player = new YT.Player('player', {
+    
     height: '390',
     width: '640',
+    
+
     videoId: videoid,
-    playerVars: {rel: 0, 'controls': 0},
+    playerVars: {
+        'rel': 0, 
+        'autohide': 2, // 0,1,2
+        'autoplay': 0, // 0,1 
+        'color': 'red', // red,white
+        'controls': 2, // 0,1,2
+        'disablekb': 0, //0,1 
+        'enablejsapi': 1, // 0,1
+        'fs': 1, // 0,1
+        'hl': 'en',
+        'iv_load_policy': 1, // 1,3        
+    },
     events: {
         'onReady': initialize,
         'onStateChange': onPlayerStateChange

@@ -13,6 +13,10 @@ Including another URLconf
     1. Import the include() function: from django.conf.urls import url, include
     2. Add a URL to urlpatterns:  url(r'^blog/', include('blog.urls'))
 """
+
+from .settings import MEDIA_ROOT
+from django.views import static
+
 from django.contrib import admin
 from django.conf.urls import url, include
 
@@ -32,4 +36,5 @@ urlpatterns = [
     url(r"^categories/", include(categories_urls)),
     url(r"^snippets/", include(snippets_urls)),
     url(r"^subscribe/", include(subscribe_urls)),
+    url(r'^media/(?P<path>.*)$', static.serve,{'document_root': MEDIA_ROOT}),
 ]

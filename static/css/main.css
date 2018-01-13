@@ -33,6 +33,25 @@ body{
 /*------------------------------------------------------*/
 /* Video page */
 
+.video-wrapper {
+  position: relative;
+  padding-bottom: 75%;
+  /* 4:3 aspect ratio */
+  padding-bottom: 56.25%;
+  /* 16:9 aspect ratio */
+  padding-top: 0;
+  height: 0;
+}
+.video-wrapper iframe {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+}
+
+/*------------------------------------------------------*/
+
 .field_input_label{
     margin:0px;
 }

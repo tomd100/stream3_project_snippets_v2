@@ -1,8 +1,22 @@
 // -----------------------------------------------------------------------------
 // Video Functions
 
+function setVideoSubTitle(sub_title){
+    if(sub_title == 'all') {
+        video_sub_title = 'all videos'
+    } else if(sub_title == 'no-category') {
+            video_sub_title = 'no category set'
+        } else {
+            video_sub_title = sub_title;
+        }
+    localStorage.setItem("video_sub_title", video_sub_title);
+}
 
-
+function videoReturn(){
+    var video_url = localStorage.getItem("video_url");
+    window.location.href = video_url;
+    return
+}
 
 // -----------------------------------------------------------------------------
 // Snippet Controls

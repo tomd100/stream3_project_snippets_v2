@@ -3,7 +3,8 @@
 
 {% block title %}
 
-Video Page
+Video Page 
+
 
 {% endblock %}
 
@@ -18,7 +19,7 @@ Video Page
                 <p>
                     <a href='{% url "videocategory-edit" category.id %}'><i class="fa fa-pencil"></i></a>
                     <a href='{% url "videocategory-delete" category.id %}'><i class="fa fa-trash"></i></a>
-                    <a class='video_links' href='{% url "video-list" category.id %}'>{{ category }}</a>
+                    <a class='video_links' onclick="setVideoSubTitle('{{ category }}')" href='{% url "video-list" category.id %}'>{{ category }}</a>
                 </p>
             {% endfor %}
         </div>
@@ -27,7 +28,7 @@ Video Page
 </div>
 
 <div class='col-md-offset-2 col-md-6'>
-    <h3>Video List</h3>
+    <h3 id='video_title'>Video List</h3>
     
     <div id = 'video_list_container'>
         <div class = 'list_item'>
@@ -44,11 +45,18 @@ Video Page
 </div>
 
 <script>
+
 window.onload = checkURLHistory();
 
 function checkURLHistory(){
     var video_url = window.location.href;
     localStorage.setItem("video_url", video_url);
+    video_sub_title = localStorage.getItem("video_sub_title");
+    
+    if(video_sub_title != undefined){
+        var title = document.getElementById('video_title').innerHTML
+        document.getElementById('video_title').innerHTML = title + ' (' + video_sub_title + ')'
+    }
     return
 }
 </script>
