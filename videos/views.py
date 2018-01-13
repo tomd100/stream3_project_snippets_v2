@@ -16,26 +16,24 @@ from django.urls import reverse_lazy
 # Video Views
 
 class VideoListView(ListView):
-    model = Video
     
     def get_context_data(self, **kwargs):
         user = self.request.user
-        category_id = self.kwargs['cid']
-        category_id = int(category_id)
+        category_id = int(self.kwargs['cid'])
+        
         context = super(VideoListView, self).get_context_data(**kwargs)
         if category_id == 9999:
-            context['video_list'] = Video.objects.all().filter(user=user, category=None)
+            context['video_list'] = Video.objects.all().filter(user=user, category=None).order_by('id')
         elif category_id > 0:
-            context['video_list'] = Video.objects.all().filter(user=user, category=category_id)
+            context['video_list'] = Video.objects.all().filter(user=user, category=category_id).order_by('id')
         context.update({
-            'videocategory_list': VideoCategory.objects.all().filter(user=user),
+            'videocategory_list': VideoCategory.objects.all().filter(user=user).order_by('category'),
         })
         return context
         
     def get_queryset(self):
         user = self.request.user
-        self.videocategory = VideoCategory.objects.all().filter(user=user)
-        return Video.objects.all().filter(user=user)
+        return Video.objects.all().filter(user=user).order_by('id')
 
 #-------------------------------------------------------------------------------
 

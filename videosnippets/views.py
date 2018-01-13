@@ -38,9 +38,9 @@ class FormListView(FormMixin, ListView):
         
 class SnippetListView(FormListView):
     form_class = SnippetSaveForm;
-    template_name = 'snippet_list.html'
-    context_object_name = 'snippet_list'
-    model = Snippet
+    # template_name = 'snippet_list.html'
+    # context_object_name = 'snippet_list'
+    # model = Snippet
     
     def get_context_data(self, **kwargs):
         video_id = self.kwargs['vid']
@@ -58,7 +58,7 @@ class SnippetListView(FormListView):
     def get_queryset(self):
         video_id = self.kwargs['vid']
         self.video = get_object_or_404(Video, pk=video_id)
-        return Snippet.objects.filter(video = self.video)
+        return Snippet.objects.filter(video = self.video).order_by('id')
     
 #-------------------------------------------------------------------------------
 
@@ -82,7 +82,6 @@ def snippet_save(request, snippet_id):
     if request.method == 'POST':
         form = SnippetSaveForm(request.POST, instance = snippet)
         if form.is_valid():
-            print('saving')
             snippet = form.save(commit = False);
             snippet.save();
             data={};

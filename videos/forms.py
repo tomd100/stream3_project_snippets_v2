@@ -10,7 +10,7 @@ class VideoForm(ModelForm):
         fields = ['category', 'url', 'title']
             
     def __init__(self, *args, **kwargs):
-        request = kwargs.pop('request', None) # 'request passed by view mixin'
+        request = kwargs.pop('request', None) 
         super(VideoForm, self).__init__(*args, **kwargs)
         self.fields['category'].queryset = VideoCategory.objects.filter(user=request.user)
 
