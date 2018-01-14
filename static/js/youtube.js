@@ -12,31 +12,33 @@ firstScriptTag.parentNode.insertBefore(tag, firstScriptTag);
 //    after the API code downloads.
 
 var player;
+var videoid;
 function onYouTubeIframeAPIReady() {
-    player = new YT.Player('player', {
-    
-    height: '390',
-    width: '640',
-    
-
-    videoId: videoid,
-    playerVars: {
-        'rel': 0, 
-        'autohide': 2, // 0,1,2
-        'autoplay': 0, // 0,1 
-        'color': 'red', // red,white
-        'controls': 2, // 0,1,2
-        'disablekb': 0, //0,1 
-        'enablejsapi': 1, // 0,1
-        'fs': 1, // 0,1
-        'hl': 'en',
-        'iv_load_policy': 1, // 1,3        
-    },
-    events: {
-        'onReady': initialize,
-        'onStateChange': onPlayerStateChange
-      }
-    });
+    if(videoid != undefined) {
+        player = new YT.Player('player', {
+        
+        height: '390',
+        width: '640',
+        
+        videoId: videoid,
+        playerVars: {
+            'rel': 0, 
+            'autohide': 2, // 0,1,2
+            'color': 'red', // red,white
+            // 'controls': 0, // 0,1,2
+            'disablekb': 0, //0,1 
+            'enablejsapi': 1, // 0,1
+            'fs': 1, // 0,1
+            'hl': 'en',
+            'iv_load_policy': 1, // 1,3  
+            'autoplay': 0, // 0,1 
+        },
+        events: {
+            'onReady': initialize,
+            'onStateChange': onPlayerStateChange
+          }
+        });
+    }
 }
     
 
@@ -62,7 +64,7 @@ function initialize(){
     time_update_interval = setInterval(function () {
         checkLoopStatus();
         updateTimerDisplay();
-        updateProgressBar();
+        // updateProgressBar();
     }, 1000)
 }
 
@@ -106,10 +108,10 @@ function updateProgressBar(){
     $('#progress-bar').val((player.getCurrentTime() / player.getDuration()) * 100);
 }
 
-function resetProgressBar(){
-    // Reset the progress bar to the beginning
-    $('#progress-bar').val(0);
-}
+// function resetProgressBar(){
+//     // Reset the progress bar to the beginning
+//     $('#progress-bar').val(0);
+// }
 
 $('#progress-bar').on('mouseup touchend', function (e) {
 
@@ -202,43 +204,23 @@ function setSpeed(val) {
     player.setPlaybackRate(val)
 }
 
-// -----------------------------------------------------------------------------
-// Full screen process
-
-// function onYouTubeIframeAPIReadyFS() {
-//     player = new YT.Player('yt_player', {
-//     height: '585',
-//     width: '960',
-//     videoId: videoid,
-//     playerVars: {rel: 0, 'controls': 0},
-//     events: {
-//         'onReady': initialize,
-//         'onStateChange': onPlayerStateChange
-//       }
-//     });
-// }
-
-// function fullScreen(){
-//     player.pauseVideo();
-//     document.getElementById('yt_player2').id = 'yt_player';
-//     document.getElementById('yt_player').id = 'yt_player1';
-//     onYouTubeIframeAPIReadyFS()
-//     return
-// }
-
+function getVideoTitle(){
+    document.getElementById("id_title").innerText = player.getVideoData().title
+}
 // -----------------------------------------------------------------------------
 // Button Toggle
 
-$('#play_btn').click(function(){
-    var $this = $(this);
-    $this.toggleClass('tmp');
-    if($this.hasClass('tmp')){
-        $this.text('Pause'); 
-        $this.onclick=playSnippet()
+function togglePlay(){
+    var play_btn = document.getElementById('play_btn');
+    play_btn.classList.toggle("tmp");
+    if(play_btn.classList.contains("tmp"))
+    {
+        play_btn.textContent = 'Pause'
+        playSnippet();
     } else {
-        $this.text('Play');
-        $this.onclick=pauseVideo()
+        play_btn.textContent = 'Play'
+        pauseVideo();
     }
-});
+}
 
 

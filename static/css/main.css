@@ -57,10 +57,10 @@ body{
 }
 
 .field_input{
-    width: 300px;
+    width: 500px;
 }
 
-#video_list_container{
+#category_list_container{
     border-top:solid;
     border-width: thin;
     max-height: 350px;
@@ -68,7 +68,7 @@ body{
     padding-top:10px;
 }
 
-#category_list_container{
+#video_list_container{
     border-top:solid;
     border-width: thin;
     max-height: 350px;
@@ -82,11 +82,11 @@ body{
 }
 
 #id_title{
-    width:400px;
+    width:500px;
 }
 
 #id_url{
-    width:400px;
+    width:500px;
 }
 
 a.video_links{

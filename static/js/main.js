@@ -22,6 +22,7 @@ function videoReturn(){
 // Snippet Controls
 
 function controlToggle(){
+
     var list_div = document.getElementById('snippet_list_div')
     var control_div = document.getElementById('snippet_control_div')
     resetVideo()
