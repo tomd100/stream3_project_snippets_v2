@@ -11,6 +11,13 @@ Snippet Page
 
 {% endblock %}
 
+
+{% block navbar %}
+
+{% include "videosnippets/_snippet_navbar.html" %}
+
+{% endblock %}
+
 {% block content %}
 <!----------------------------------------------------------------------------->
 
@@ -69,7 +76,6 @@ Snippet Page
 
 <div hidden id='json_display'></div>
 
-<!----------------------------------------------------------------------------->
 {% endblock %}
 
 <!----------------------------------------------------------------------------->
@@ -116,6 +122,8 @@ $(".snippet_links").click(function(event) {
 <script>
     videoid = '{{video.yt_id}}';
 </script>
+
+<script src="{% static 'js/youtube.js' %}"></script>
 
 {% endblock %}
 

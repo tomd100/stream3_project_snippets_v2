@@ -9,6 +9,7 @@ from django.views.generic import ListView, DetailView, CreateView, UpdateView, D
 from .models import Video
 from .forms import VideoForm
 from categories.models import VideoCategory
+from videosnippets.models import Snippet
 
 from django.urls import reverse_lazy
 
@@ -63,6 +64,11 @@ class VideoCreateView(RequestFormKwargsMixin, CreateView):
             self.object.yt_id = yt_id;
             self.object.user = self.request.user
             self.object.save()
+
+            # self.snippet = Snippet(title="Intro")
+            # self.snippet = self.object.video
+            # self.snippet.save()
+            
             return HttpResponseRedirect(reverse_lazy('video-list', kwargs={'cid': 0}))
         else:
             messages.success(self.request, "Not a valid YouTube URL", extra_tags='danger') 

@@ -62,6 +62,7 @@ body{
 
 #category_list_container{
     border-top:solid;
+    border-bottom:solid;
     border-width: thin;
     max-height: 350px;
     overflow-y:scroll;
@@ -70,6 +71,7 @@ body{
 
 #video_list_container{
     border-top:solid;
+    border-bottom:solid;
     border-width: thin;
     max-height: 350px;
     overflow-y:scroll;

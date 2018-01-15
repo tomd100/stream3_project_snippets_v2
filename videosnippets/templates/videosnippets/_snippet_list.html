@@ -8,7 +8,7 @@
             <p>
                 <a href='{% url "snippet-edit" snippet.id %}'><i class="fa fa-pencil"></i></a>
                 <a href='{% url "snippet-delete" snippet.id %}'><i class="fa fa-trash"></i></a>
-                <a class='snippet_links' onclick='controlToggle()' href='{% url "snippet-control" snippet.id %}'>{{ snippet.title }}</i></a>
+                <a class='snippet_links' onclick='controlToggle()' href='{% url "snippet-control" snippet.id %}'>{{ snippet.title }}</a>
             </p>
         {% endfor %}
     </div>

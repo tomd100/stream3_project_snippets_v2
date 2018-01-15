@@ -12,33 +12,30 @@ firstScriptTag.parentNode.insertBefore(tag, firstScriptTag);
 //    after the API code downloads.
 
 var player;
-var videoid;
 function onYouTubeIframeAPIReady() {
-    if(videoid != undefined) {
-        player = new YT.Player('player', {
-        
-        height: '390',
-        width: '640',
-        
-        videoId: videoid,
-        playerVars: {
-            'rel': 0, 
-            'autohide': 2, // 0,1,2
-            'color': 'red', // red,white
-            // 'controls': 0, // 0,1,2
-            'disablekb': 0, //0,1 
-            'enablejsapi': 1, // 0,1
-            'fs': 1, // 0,1
-            'hl': 'en',
-            'iv_load_policy': 1, // 1,3  
-            'autoplay': 0, // 0,1 
-        },
-        events: {
-            'onReady': initialize,
-            'onStateChange': onPlayerStateChange
-          }
-        });
-    }
+    player = new YT.Player('player', {
+    
+    height: '390',
+    width: '640',
+    
+    videoId: videoid,
+    playerVars: {
+        'rel': 0, 
+        'autohide': 2, // 0,1,2
+        'color': 'red', // red,white
+        // 'controls': 0, // 0,1,2
+        'disablekb': 0, //0,1 
+        'enablejsapi': 1, // 0,1
+        'fs': 1, // 0,1
+        'hl': 'en',
+        'iv_load_policy': 1, // 1,3  
+        'autoplay': 0, // 0,1 
+    },
+    events: {
+        'onReady': initialize,
+        'onStateChange': onPlayerStateChange
+      }
+    });
 }
     
 
@@ -204,9 +201,6 @@ function setSpeed(val) {
     player.setPlaybackRate(val)
 }
 
-function getVideoTitle(){
-    document.getElementById("id_title").innerText = player.getVideoData().title
-}
 // -----------------------------------------------------------------------------
 // Button Toggle
 

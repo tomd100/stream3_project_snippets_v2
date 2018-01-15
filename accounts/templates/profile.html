@@ -8,14 +8,22 @@ Profile Page
 
 {% endblock %}
 
+
+{% block navbar %}
+
+{% include "_accounts_navbar.html" %}
+
+{% endblock %}
+
+
 {% block content %}
 
 <h3>My Profile</h3>
 
 <p>You are logged in as {{ user.email }} </p>
 <p>User Name: {{ user.username }} </p>
-<p>First Name: {{ user.first_name }} </p>
-<p>Last Name: {{ user.last_name }} </p>
+<!--<p>First Name: {{ user.first_name }} </p>-->
+<!--<p>Last Name: {{ user.last_name }} </p>-->
 
 {% if user.profile.sub_type == 0 %}
     <p>Subscription Type: You have not purchased a subscription </p>

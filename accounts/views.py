@@ -26,11 +26,9 @@ def login(request):
                                     password=form.cleaned_data['password'])
             if user is not None:
                 auth.login(request, user);
-                messages.success(request, "You have successfully logged in")                
                 return redirect(profile)
             else:
                 messages.success(request, "Your user name or password was not recognised ", extra_tags='danger') 
-                # form.add_error(None, "Your user name or password was not recognised ")
     else:
         form = UserLoginForm();
     return render(request, "login.html", {'form': form})    
@@ -45,15 +43,18 @@ def register(request):
             user = auth.authenticate(username=form.cleaned_data['username'],
                                     password=form.cleaned_data['password1'])
             if user is not None:
-                auth.login(request, user);
+                return redirect(login)
+                messages.success(request, "You have successfully registered")   
                 
-                if request.GET and request.GET['next'] != "":
-                    next = request.GET["next"];
-                    return HttpResponseRedirect(next);
-                else:
-                    return redirect(login);
+                # auth.login(request, user);
                 
-            return redirect(login)      
+                # if request.GET and request.GET['next'] != "":
+                #     next = request.GET["next"];
+                #     return HttpResponseRedirect(next);
+                # else:
+                #     return redirect(login);
+                
+            # return redirect(login)      
     else:
         form = UserRegistrationForm();
 

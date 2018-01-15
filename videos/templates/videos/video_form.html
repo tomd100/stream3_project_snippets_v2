@@ -16,7 +16,6 @@ Video Page
     <h3><span id='add_edit'>Add</span> Video</h3>
     <script>$('#add_edit').html(($(location).attr('href').search('/edit/') > 0) ? 'Edit' : 'Add');</script>
     
-
     <form id="video_form" method ='POST' enctype="multipart/form-data" >
         {% csrf_token %}
         
@@ -24,22 +23,15 @@ Video Page
             <label class="field_input_label">{{ field.label_tag }}</label>
             <p id='video_field'>{{ field }}</p>
         {% endfor %}
+        <button type='button' onclick='getVideoTitle()'>Automatically load video title</button>
         
-        <br>
+        <br><br>
         <button type='submit'>Save</button>
         <button type='button' onclick='window.history.back()'>Cancel</button>
-        <button  type='button' onclick='getVideoTitle()'></button>
     </form>
 
 </div>
 
-
-<!----------------------------------------------------------------------------->
-
-<!--$.getJSON( "https://www.googleapis.com/youtube/v3/videos?part=id%2Csnippet&id=<<youtubeId>>&key=<<API KEY of google console app>>", function( data ) {-->
-<!--   //var obj = $.parseJSON(data);-->
-<!--    console.log(data.items[0].snippet.localized.title);-->
-<!--});-->
 
 {% endblock %}
 
