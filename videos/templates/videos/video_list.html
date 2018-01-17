@@ -64,6 +64,8 @@ function checkURLHistory(){
     if(video_sub_title != undefined){
         var title = document.getElementById('video_title').innerHTML
         document.getElementById('video_title').innerHTML = title + ' (' + video_sub_title + ')'
+    
+    localStorage.setItem("current", 0);    
     }
     return
 }

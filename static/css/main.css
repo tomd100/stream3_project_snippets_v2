@@ -19,6 +19,7 @@ body{
 #message_div{
     position: absolute;
 }
+
 /*------------------------------------------------------*/
 /* Login page */
 
@@ -31,6 +32,28 @@ body{
 }
 
 /*------------------------------------------------------*/
+/*fa colours*/
+:root {
+    --fa-colour: #adae9e;
+}
+:root{
+    --link_colour: #adae9e;
+}
+.fa-pencil {
+    color: var(--fa-colour);
+}
+.fa-trash{
+    color: var(--fa-colour);
+}
+.fa-plus{
+    color: var(--fa-colour);
+}
+
+a.video_links{
+    color: var(--link-colour);
+    text-decoration: none;    
+}
+
 /* Video page */
 
 .video-wrapper {
@@ -63,6 +86,7 @@ body{
 #category_list_container{
     border-top:solid;
     border-bottom:solid;
+    border-color: var(--link-colour);
     border-width: thin;
     max-height: 350px;
     overflow-y:scroll;
@@ -72,6 +96,7 @@ body{
 #video_list_container{
     border-top:solid;
     border-bottom:solid;
+    border-color: var(--link-colour);
     border-width: thin;
     max-height: 350px;
     overflow-y:scroll;
@@ -91,10 +116,6 @@ body{
     width:500px;
 }
 
-a.video_links{
-    color: black;
-    text-decoration: none;    
-}
 /*------------------------------------------------------*/
 /* Category page */
 
@@ -117,6 +138,7 @@ a.video_links{
 #snippet_list_container {
     border-top:solid;
     border-width: thin;
+    border-color: var(--link-colour);
     max-height: 350px;
     overflow-y:scroll;
     padding-top:10px;
@@ -128,16 +150,16 @@ a.video_links{
 }
 
 a.snippet_links{
-    color: black;
+    color: var(--link-colour);
     text-decoration: none;    
 }
 
 a.snippet_links:link a.snippet_links:visited {
-    color: black;
+    color: var(--link-colour);
 }
 
 a.snippet_links:hover{
-    color: red;
+    color: var(--link-colour);
 }
 
 .btn_plus{

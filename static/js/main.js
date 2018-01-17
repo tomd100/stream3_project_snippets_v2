@@ -61,8 +61,7 @@ function controlToggle(){
     
     var list_div = document.getElementById('snippet_list_div')
     var control_div = document.getElementById('snippet_control_div')
-    resetVideo()
-    
+    // resetVideo()
     
     if (list_div.classList.contains('tmp')){
         list_div.classList.remove('tmp');

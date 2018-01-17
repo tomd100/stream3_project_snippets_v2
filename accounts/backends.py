@@ -1,29 +1,15 @@
-from django.contrib.auth.models import User
- 
-class EmailAuth(object):
- 
-    def authenticate(self, email=None, password=None):
-        """
-       Get an instance of User using the supplied email and check its password
-       """
+
+from django.contrib.auth import get_user_model
+from django.contrib.auth.backends import ModelBackend
+
+class EmailAuth(ModelBackend):
+    def authenticate(self, username=None, password=None, **kwargs):
+        UserModel = get_user_model()
         try:
-            user = User.objects.get(email=email)
+            user = UserModel.objects.get(email=username)
+        except UserModel.DoesNotExist:
+            return None
+        else:
             if user.check_password(password):
                 return user
- 
-        except User.DoesNotExist:
-            return None
- 
-    def get_user(self, user_id):
-        """
-       Used by the django authentication system to retrieve an instance of User
-       """
-        try:
-            user = User.objects.get(pk=user_id)
-            if user.is_active:
-                return user
-            return None
-        except User.DoesNotExist:
-            return None
-            
-from django.contrib.auth.models import User
+        return None

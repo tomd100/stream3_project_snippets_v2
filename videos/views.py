@@ -65,9 +65,10 @@ class VideoCreateView(RequestFormKwargsMixin, CreateView):
             self.object.user = self.request.user
             self.object.save()
 
-            # self.snippet = Snippet(title="Intro")
-            # self.snippet = self.object.video
-            # self.snippet.save()
+            snippet = Snippet()
+            snippet.title = "Intro"
+            snippet.video = self.object
+            snippet.save()
             
             return HttpResponseRedirect(reverse_lazy('video-list', kwargs={'cid': 0}))
         else:

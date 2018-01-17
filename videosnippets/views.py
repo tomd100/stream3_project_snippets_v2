@@ -94,7 +94,7 @@ def snippet_save(request, snippet_id):
 
 class SnippetCreateView(CreateView):
     model = Snippet
-    fields = ['title', 'video']
+    fields = ['title', 'video', 'start']
 
     def get_initial(self):
         return { 'video': self.kwargs['pk'] }

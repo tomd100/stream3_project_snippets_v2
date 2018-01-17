@@ -32,7 +32,7 @@ def login(request):
     else:
         form = UserLoginForm();
     return render(request, "login.html", {'form': form})    
-    
+   
 #-------------------------------------------------------------------------------    
 
 def register(request):

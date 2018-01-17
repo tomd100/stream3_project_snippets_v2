@@ -13,11 +13,12 @@
         {% endfor %}
     </div>
 </div>
-<a href='{% url "snippet-add" video.id %}'><i class="fa fa-plus"></i></a>
+<a onclick='saveCurrent()' href='{% url "snippet-add" video.id %}'><i class="fa fa-plus"></i></a>
 
 <br><br>
 <div class='col-md-12 snippet_controls3'>
     <p>
+        <button onclick='setPreviousPosition()' type="button" class="btn btn-info" >Play from last position</button>
         <button onclick='videoReturn()' type="button" class="btn btn-info" >Return</button>
     </p> 
 </div>
@@ -29,6 +30,20 @@ function videoReturn(){
     var video_url = localStorage.getItem("video_url");
     window.location.href = video_url;
     return
+}
+
+function saveCurrent(){
+    var current = Number((player.getCurrentTime()).toFixed(1));
+    if (current > 2) {
+        current -=2
+    }
+    localStorage.setItem("current", current);
+};
+
+function setPreviousPosition(){
+    var current = localStorage.getItem("current");
+    current = Number(current);
+    player.seekTo(current);
 }
 </script>
 

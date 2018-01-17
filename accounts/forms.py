@@ -3,7 +3,7 @@ from django.contrib.auth.forms import UserCreationForm
 from django.contrib.auth.models import User
 from django.core.exceptions import ValidationError
 from django.forms import formset_factory
-
+from django.contrib import auth, messages
 #-------------------------------------------------------------------------------
 
 class UserLoginForm(forms.Form):
@@ -29,6 +29,7 @@ class UserRegistrationForm(UserCreationForm):
         username = self.cleaned_data.get('username')
         if email and User.objects.filter(email=email).exclude(username=username).count(): 
             raise forms.ValidationError(u'Email addresses must be unique.')
+            
         return email
 
     def clean_password2(self):
