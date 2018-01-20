@@ -32,7 +32,15 @@ body{
 }
 
 /*------------------------------------------------------*/
+/*Dropdown menu */
 
+.scrollable-menu {
+    height: auto;
+    max-height: 400px;
+    overflow-x: hidden;
+}
+
+/*------------------------------------------------------*/
 /*fa colours*/
 :root {
     --fa-colour: #adae9e;

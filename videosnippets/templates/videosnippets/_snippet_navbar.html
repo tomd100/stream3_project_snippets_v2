@@ -2,8 +2,8 @@
 <li><a href="/"><i class="fa fa-home"></i> Home</a></li>
 
 <li class="dropdown">
-    <a id="edit_snippet" href="#" data-toggle="dropdown" class="dropdown-toggle"><i class="fa fa-plus-square-o"></i> Snippets <b class="caret"></b></a>
-    <ul class="dropdown-menu">
+    <a id="edit_snippet" class="dropdown-toggle" href="#" data-toggle="dropdown" ><i class="fa fa-plus-square-o"></i> Snippets <b class="caret"></b></a>
+    <ul class="dropdown-menu scrollable-menu">
         <li><a href="{% url 'snippet-add' video.id %}">Add New Snippet </a></li>
         <li><a id="edit_list3_menu" class="disabled" href='#' onclick="changeListItems('edit_list', 3)">Edit Snippet</a></li>
         <li><a id="delete_list3_menu" class="disabled" href='#' onclick="changeListItems('delete_list', 3)">Delete Snippet</a></li>
