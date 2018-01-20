@@ -40,8 +40,11 @@ Snippet Page
 window.onload = getCurrent();
 
 function getCurrent(){
-    var current = localStorage.getItem("current");
     var tag = document.getElementById('id_start');
+    if (tag.value > 0){
+        return
+    }
+    var current = localStorage.getItem("current");
     current = Number(current).toFixed(1);
     tag.setAttribute('step', 0.1);
     tag.value = current;
@@ -50,15 +53,3 @@ function getCurrent(){
 </script>
 
 {% endblock %}
-
-<script>
-window.onload = getCurrent();
-
-function getCurrent(){
-    var current = localStorage.getItem("current");
-    var tag = document.getElementById('id_start')
-    // tag.setAttribute('value', current)
-    tag.value = current
-}
-
-</script>

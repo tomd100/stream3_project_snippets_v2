@@ -109,7 +109,7 @@ class SnippetCreateView(CreateView):
 
 class SnippetUpdateView(UpdateView):
     model = Snippet
-    fields = ['title']
+    fields = ['title', 'start']
     
     def get_success_url(self):
         snippet = get_object_or_404(Snippet, pk=self.kwargs['pk']);
