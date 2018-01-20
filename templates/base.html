@@ -36,7 +36,7 @@
                     
                     {% block navbar %} {% endblock %}
                     
-                    <li><a href="{% url 'profile' %}">Logged in as: {{ request.user.username }}</a></li>
+                    <li><a href="{% url 'profile' %}"><i class="fa fa-user"></i> Logged in as: {{ request.user.username }}</a></li>
                 </ul>
                 {% else %}
                 
@@ -52,6 +52,13 @@
         </div>
     </nav>
 </section>
+<!--<section >-->
+<!--    <div id="message_div" class="alert ">-->
+<!--        <div class="messages">-->
+<!--            <li>Exmple message</li>-->
+<!--        </div>-->
+<!--    </div>-->
+<!--</section>-->
 <!------------------------------------------------------------------------------ main --->
 <section>
 

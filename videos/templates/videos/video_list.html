@@ -20,34 +20,42 @@ Video Page
     <h3>Category List</h3>
     
     <div id = 'category_list_container'>
-        <div class = 'list_item'>
+        <div class="list-group">
             {% for category in videocategory_list %}
-                <p>
-                    <a href='{% url "videocategory-edit" category.id %}'><i class="fa fa-pencil"></i></a>
-                    <a href='{% url "videocategory-delete" category.id %}'><i class="fa fa-trash"></i></a>
-                    <a class='video_links' onclick="setVideoSubTitle('{{ category }}')" href='{% url "video-list" category.id %}'>{{ category }}</a>
-                </p>
+
+            <span class="default_list1 tmp"><a class="list-group-item list-group-item-action" onclick="setVideoSubTitle('{{ category }}')" href="{% url "video-list" category.id %}">{{ category }}</a></span>
+            <span class="edit_list1" hidden><a class="list-group-item list-group-item-action" href="{% url "videocategory-edit" category.id %}">edit: {{ category }}</a></span>
+            <span class="delete_list1" hidden><a class="list-group-item list-group-item-action" href="{% url "videocategory-delete" category.id %}">del: {{ category }}</a></span>
+            
             {% endfor %}
+        
         </div>
     </div>
-    <a href='{% url "videocategory-add" %}'><i class="fa fa-plus"></i></a>
+    <a href='{% url "videocategory-add" %}'><i class="fa fa-plus"></i></a> &nbsp
+    <a href='#' class="disabled" onclick="changeListItems('edit_list', 1)"><i class="fa fa-pencil"></i></a> &nbsp
+    <a href='#' class="disabled" onclick="changeListItems('delete_list', 1)"><i class="fa fa-trash"></i></a>
+
 </div>
 
 <div class='col-md-offset-1 col-md-7'>
     <h3 id='video_title'>Video List</h3>
     
     <div id = 'video_list_container'>
-        <div class = 'list_item'>
+        <div class='list-group'>
             {% for video in video_list %}
-                <p>
-                    <a href='{% url "video-edit" video.id %}'><i class="fa fa-pencil"></i></a>
-                    <a href='{% url "video-delete" video.id %}'><i class="fa fa-trash"></i></a>
-                    <a class='video_links' href='{% url "snippet-list" video.id 0 %}'>{{ video.title }}</a>
-                </p>
+        
+            <span class="default_list2 tmp"><a class="list-group-item list-group-item-action" href="{% url "snippet-list" video.id 0 %}">{{ video.title }}</a></span>
+            <span class="edit_list2" hidden><a class="list-group-item list-group-item-action" href="{% url "video-edit" video.id %}">edit: {{ video.title  }}</a></span>
+            <span class="delete_list2" hidden><a class="list-group-item list-group-item-action" href="{% url "video-delete" video.id %}">del: {{ video.title  }}</a></span>
+
+
             {% endfor %}
         </div>
     </div>
-    <a href='{% url "video-add"%}'><i class="fa fa-plus"></i></a>
+    <a href='{% url "video-add" %}'><i class="fa fa-plus"></i></a> &nbsp
+    <a href='#' class="disabled" onclick="changeListItems('edit_list', 2)"><i class="fa fa-pencil"></i></a> &nbsp
+    <a href='#' class="disabled" onclick="changeListItems('delete_list', 2)"><i class="fa fa-trash"></i></a>
+
 </div>
 
 <!----------------------------------------------------------------------------->

@@ -3,17 +3,20 @@
 <h3>Snippets List</h3>
 
 <div id = 'snippet_list_container'>
-    <div class = 'list_item'>
+    <div class='list-group'>
         {% for snippet in snippet_list %}
-            <p>
-                <a href='{% url "snippet-edit" snippet.id %}'><i class="fa fa-pencil"></i></a>
-                <a href='{% url "snippet-delete" snippet.id %}'><i class="fa fa-trash"></i></a>
-                <a class='snippet_links' onclick='controlToggle()' href='{% url "snippet-control" snippet.id %}'>{{ snippet.title }}</a>
-            </p>
+    
+        <span class="default_list3 tmp"><a class="snippet_links list-group-item list-group-item-action" onclick="controlToggle()" href="{% url "snippet-control" snippet.id %}">{{ snippet.title }}</a></span>
+        <span class="edit_list3" hidden><a class="list-group-item list-group-item-action" href='{% url "snippet-edit" snippet.id %}'>edit: {{ snippet.title  }}</a></span>
+        <span class="delete_list3" hidden><a class="list-group-item list-group-item-action" href="{% url "snippet-delete" snippet.id %}">del: {{ snippet.title  }}</a></span>
+
         {% endfor %}
     </div>
 </div>
-<a onclick='saveCurrent()' href='{% url "snippet-add" video.id %}'><i class="fa fa-plus"></i></a>
+<a onclick='saveCurrent()' href='{% url "snippet-add" video.id %}'><i class="fa fa-plus"></i></a> &nbsp
+<a href='#' class="disabled" onclick="changeListItems('edit_list', 3)"><i class="fa fa-pencil"></i></a> &nbsp
+<a href='#' class="disabled" onclick="changeListItems('delete_list', 3)"><i class="fa fa-trash"></i></a>
+
 
 <br><br>
 <div class='col-md-12 snippet_controls3'>

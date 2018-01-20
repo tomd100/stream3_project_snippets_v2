@@ -55,10 +55,8 @@ function getCurrent(){
 window.onload = getCurrent();
 
 function getCurrent(){
-    console.log("here 1")
     var current = localStorage.getItem("current");
     var tag = document.getElementById('id_start')
-    console.log("here")
     // tag.setAttribute('value', current)
     tag.value = current
 }

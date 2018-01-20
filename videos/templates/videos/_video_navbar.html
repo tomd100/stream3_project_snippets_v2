@@ -1,12 +1,31 @@
 
 <li><a href="/"><i class="fa fa-home"></i> Home</a></li>
-<li><a onclick="setVideoSubTitle('all')" href="{% url 'video-list' 0 %}"><i class="fa fa-object-group"></i> All Videos</a></li>
-<li><a onclick="setVideoSubTitle('no-category')"href="{% url 'video-list' 9999 %}"><i class="fa fa-object-ungroup"></i> Uncategorised Videos</a></li>
 
 <li class="dropdown">
-    <a href="#" data-toggle="dropdown" class="dropdown-toggle"><i class="fa fa-plus-square-o"></i> Add <b class="caret"></b></a>
+    <a href="#" data-toggle="dropdown" class="dropdown-toggle"><i class="fa fa-plus-square-o"></i> Categories <b class="caret"></b></a>
     <ul class="dropdown-menu">
-        <li><a href='{% url "videocategory-add" %}'>Add New Category</a></li>
-        <li><a href='{% url "video-add"%}'>Add New Video</a></li>
+        <li><a href='{% url "videocategory-add" %}'>Add New Category </a></li>
+        <li><a id="edit_list1_menu" class="disabled" href='#' onclick="changeListItems('edit_list', 1)">Edit Category</a></li>
+        <li><a id="delete_list1_menu" class="disabled" href='#' onclick="changeListItems('delete_list', 1)">Delete Category</a></li>
+    </ul>
+</li>
+
+<li class="dropdown">
+    <a href="#" data-toggle="dropdown" class="dropdown-toggle"><i class="fa fa-plus-square-o"></i> Videos <b class="caret"></b></a>
+    <ul class="dropdown-menu">
+        <li><a href="{% url 'video-list' 0 %}">List All Videos </a></li>
+        <li><a href="{% url 'video-list' 9999 %}">List Uncategorised Videos </a></li>
+        <li><a href="{% url 'video-add' %}">Add New Video </a></li>
+        <li><a id="edit_list2_menu" class="disabled" href='#' onclick="changeListItems('edit_list', 2)">Edit Video</a></li>
+        <li><a id="delete_list2_menu" class="disabled" href='#' onclick="changeListItems('delete_list', 2)">Delete Video</a></li>
+    </ul>
+</li>
+
+<li class="dropdown">
+    <a href="#" data-toggle="dropdown" class="dropdown-toggle"><i class="fa fa-play"></i> Play Video <b class="caret"></b></a>
+    <ul class="dropdown-menu">
+        {% for video in video_list %}
+        <li><a class='video_links' href="{% url "snippet-list" video.id 0 %}">{{ video.title }}</a></li>
+        {% endfor %}
     </ul>
 </li>

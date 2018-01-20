@@ -32,6 +32,7 @@ body{
 }
 
 /*------------------------------------------------------*/
+
 /*fa colours*/
 :root {
     --fa-colour: #adae9e;
@@ -51,8 +52,10 @@ body{
 
 a.video_links{
     color: var(--link-colour);
-    text-decoration: none;    
+    text-decoration: none;  
 }
+
+/*------------------------------------------------------*/
 
 /* Video page */
 

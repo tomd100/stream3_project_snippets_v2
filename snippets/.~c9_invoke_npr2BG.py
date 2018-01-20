@@ -14,7 +14,7 @@ https://docs.djangoproject.com/en/1.11/ref/settings/
 import os
 import dj_database_url
 
-USE_S3 = os.environ.get("USE_S3", False)
+USE_S3 = os.environ.get("USE_S3", fa)
 
 # Build paths inside the project like this: os.path.join(BASE_DIR, ...)
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))

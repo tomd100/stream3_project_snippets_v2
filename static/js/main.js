@@ -53,6 +53,54 @@ function verifyURL(url) {
     return  yt_id.toString();
 }
 
+// -----------------------------------------------------------------------------
+// Video and Snippet list toggles
+
+
+function changeListItems(to_list, list_num) {
+    var default_list = 'default_list' + list_num;
+    var from_list = getCurrentList(list_num);
+    var to_list = to_list + list_num;
+    
+    if (from_list != default_list && from_list == to_list) {
+        to_list = default_list;
+    }
+    
+    if (to_list != default_list) {
+        var to_menu_element = document.getElementById(to_list + '_menu')
+        var to_menu_text = to_menu_element.innerHTML
+        to_menu_element.innerHTML = 'Un ' + to_menu_text;
+    } 
+    
+    if (from_list != default_list) {
+        var from_menu_element = document.getElementById(from_list + '_menu')
+        var from_menu_text = from_menu_element.innerHTML
+        from_menu_element.innerHTML = from_menu_text.substring(3, from_menu_text.length)
+    } 
+    
+    from_list_items = document.getElementsByClassName(from_list)
+    to_list_items = document.getElementsByClassName(to_list)
+    
+    for (var i = 0; i < from_list_items.length; i ++) {
+        from_list_items[i].style.display = 'none';
+        from_list_items[i].classList.remove("tmp");
+        
+        to_list_items[i].style.display = 'block';
+        to_list_items[i].classList.add("tmp");
+    
+    }
+}
+
+function getCurrentList(list_num) {
+    if (document.getElementsByClassName('default_list' + list_num)[0].classList.contains('tmp')){
+        return 'default_list' + list_num;
+    } else if (document.getElementsByClassName('edit_list' + list_num)[0].classList.contains('tmp')) {
+        return 'edit_list' + list_num;
+    } else {
+        return 'delete_list' + list_num;
+    }
+}
+
 
 // -----------------------------------------------------------------------------
 // Snippet Controls
@@ -61,11 +109,13 @@ function controlToggle(){
     
     var list_div = document.getElementById('snippet_list_div')
     var control_div = document.getElementById('snippet_control_div')
-    // resetVideo()
     
+    // this can be replaced with a toggle class method
     if (list_div.classList.contains('tmp')){
         list_div.classList.remove('tmp');
         control_div.classList.add('tmp');
+        document.getElementById("play_snippet").disabled=true;
+        document.getElementById("edit_snippet").disabled=true;
         
         list_div.style.display = 'none';
         control_div.style.display = 'block'
@@ -75,6 +125,8 @@ function controlToggle(){
         
         control_div.style.display = 'none';
         list_div.style.display = 'block'
+        document.getElementById("play_snippet").disabled=false;
+        document.getElementById("edit_snippet").disabled=false;
     }
     return 
 }
