@@ -10,10 +10,10 @@
             href="{% url "snippet-control" snippet.id %}">{{ snippet.title }}</a></span>
         
         <span class="edit_list3" hidden><a class="list-group-item list-group-item-action d-flex justify-content-between align-items-center" 
-            href='{% url "snippet-edit" snippet.id %}'>{{ snippet.title }}<span class="badge badge-success">edit</span></a></span>
+            href='{% url "snippet-edit" snippet.id %}'><span class="badge badge-success">edit</span>{{ snippet.title }}</a></span>
 
         <span class="delete_list3" hidden><a class="list-group-item list-group-item-action d-flex justify-content-between align-items-center" 
-            href='{% url "snippet-delete" snippet.id %}'>{{ snippet.title  }}<span class="badge badge-error">del</span></a></span>
+            href='{% url "snippet-delete" snippet.id %}'><span class="badge badge-error">del</span>{{ snippet.title  }}</a></span>
             
         {% endfor %}
     </div>

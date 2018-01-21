@@ -74,10 +74,24 @@ body{
 }
 
 /*------------------------------------------------------*/
+/*Subscription*/
+
+#id_select_sub{
+    width:200px;
+    height:25px;    
+}
+
+/*------------------------------------------------------*/
 /* Video page */
 
 /*------------------------------------------------------*/
 /* Category */
+
+#id_category{
+    padding-left: 10px;
+    width:350px;
+    height:25px;    
+}
 
 #category_list_container{
     border-top:solid;
@@ -105,16 +119,23 @@ body{
 }
 
 #id_title{
+    padding-left: 10px;
     width:500px;
 }
 
 #id_url{
+    padding-left: 10px;
     width:500px;
 }
 
 
 /*------------------------------------------------------*/
 /* Snippet page */
+
+#id_start{
+    padding-left: 10px;
+    max-width: 80px;
+}
 
 .video-wrapper {
   position: relative;

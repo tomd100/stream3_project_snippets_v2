@@ -1,0 +1,297 @@
+/* 
+colours: 26
+#21677F: GenBk : general background 
+#21677F: GenBrd : general border 
+#fff: BrndTxt : brand title text
+#fff: BrndHvrBk : brand hover background
+#fff: MenuTxt : menu text 
+#fff: MenuTxtHvr : menu text hover
+#35A4CC: MenuHvrBk : menu item hover background 
+#fff: MenuItemSelTxt : menu item selected text 
+#35A4CC: MenuItemSelBk : menu item selected background 
+#fff: DropItemHvrTxt : dropdown menu item hover text
+#35A4CC: DropItemHvrBk : dropdown menu item hover background
+#cccccc: OpnPgBk : opening page background
+#fafafa: BodyBk : body background
+#fafafa: InpBk : input field background
+#48717F: h1Ttl : h1 title
+#48717F: h3Ttl : h3 title
+#48717F: h4Ttl : h4 title
+#ffffff: BtnTxt: button text
+#48717F: BtnBk : button background
+#48717F: BtnBrd : button border
+#394347: LstTxt : list text
+#48717F: LstHvrBk : list hover background
+#f9f5f5: LstHvrTxt : list hover text
+#48717F: CtlLbl : speed loop labels
+#adae9e: faIcn : fa icons
+#adae9e: CntrBrd : container border colour
+*/
+
+/* Previous colors */
+
+/* navbar */
+
+.navbar-default {
+    background-image: none;
+    background-color: #21677F !important; /*GenBk*/
+    border-color: #21677F !important; /*GenBrd*/
+}
+
+.nav{
+    background-image: none;
+    background-color: #21677F !important; /*GenBk*/
+    border-color: #21677F !important; /*GenBrd*/
+}
+
+.navbar{
+    background-image: none;
+    background-color: #21677F !important; /*GenBk*/
+    border-color: #21677F !important; /*GenBrd*/
+}
+
+/*------------------------------------------------------*/
+
+/* brand title colour*/
+.navbar-default .navbar-brand{
+    color: #fff !important; /*BrndTxt*/
+}
+
+/* brand text hover colour */
+.navbar-default .navbar-brand:hover:hover,
+.navbar-default .navbar-brand:focus:focus {
+    color: #fff !important; /*BrndHvrBk*/
+}
+
+/*------------------------------------------------------*/
+/*------------------------------------------------------*/
+
+/* menu item text */
+.navbar-default 
+.navbar-nav>li>a {
+    color: #fff !important; /*MenuTxt*/
+}
+
+/* menu item hover */
+.navbar-default .navbar-nav>li>a:hover, 
+.navbar-default .navbar-nav>li>a:focus {
+    color: #fff !important; /*MenuTxtHvr*/
+    background-color: #35A4CC !important; /*MenuHvrBk*/
+}
+
+/* menu item selected: text and background */
+.navbar-default .navbar-nav>.open>a, 
+.navbar-default .navbar-nav>.open>a:hover, 
+.navbar-default .navbar-nav>.open>a:focus {
+    background-color: #35A4CC !important; /*MenuItemSelBk*/
+    color: #fff !important; /*MenuItemHvrTxt*/
+}
+
+/* dropdown menu items: hover text and background*/
+.dropdown-menu>li>a:hover, 
+.dropdown-menu>li>a:focus {
+    text-decoration: none;
+    color: #fff !important; /*DropItemHvrTxt*/
+    background-color: #35A4CC !important; /*DropItemHvrBk*/
+}
+
+/*------------------------------------------------------*/
+/*------------------------------------------------------*/
+
+.btn_plus{
+    background-color: Transparent;
+    background-repeat:no-repeat;
+    border: none;
+    cursor:pointer;
+    overflow: hidden;
+    outline: none;
+}
+/*------------------------------------------------------*/
+/* Opening Page */
+
+#opening-page{
+    border:solid;
+    background-image: url("../images/pablo (1).png");
+    background-size: cover;
+    background-color: #cccccc; /*OpnPgBk*/
+}
+
+
+/*------------------------------------------------------*/
+/* Base html */
+
+
+body{
+    background-color: #fafafa; /*BodyBk*/
+}
+
+input{
+    background-color: #fafafa; /*InpBk*/
+}
+
+/*------------------------------------------------------*/
+/* titles */
+
+.page-title h1{
+    font-family: 'Roboto', sans-serif;
+    color: #48717F; /*h1Ttl*/
+}
+
+h3{
+    font-family: 'Roboto', sans-serif;
+    color: #48717F; /*h3Ttl*/
+}
+
+h4{
+    font-family: 'Roboto', sans-serif;
+    color: #48717F; /*h4Ttl*/
+}
+
+.speed_loop_label h5 {
+    color:#48717F; /*CtlLbl*/
+}
+
+.set_label{
+    color:#48717F; /*CtlLbl*/
+}
+
+/*check this one*/
+/*input[type="radio"]:active,*/
+/*input[type="radio"]:focus{*/
+/*    background-image: none;*/
+    /*background-color: #21677F !important;*/
+/*}*/
+
+.btn-info {
+    background-image: none !important;
+    color: #ffffff !important; /*BtnTxt*/
+    background-color: #48717F !important; /*BtnBk*/
+    border-color: #48717F !important; /*BtnBrd*/
+}
+.btn-sm{
+    background-image: none !important;
+    color: #ffffff !important; /*BtnTxt*/
+    background-color: #48717F !important; /*BtnBk*/
+    border-color: #48717F !important; /*BtnBrd*/
+}
+
+.btn-primary {
+    background-image: none !important;
+    color: #ffffff !important; /*BtnTxt*/
+    background-color: #48717F !important; /*BtnBk*/
+    border-color: #48717F !important; /*BtnBrd*/
+}
+
+/* check on this: */
+.btn.focus, 
+.btn:active.focus, 
+.btn.active.focus,
+.btn:active:focus, 
+.btn.active:focus {
+    box-shadow: #c13db3 !important
+}
+
+/*.btn:active:focus, */
+/*.btn.active:focus, */
+/*.btn.focus, */
+/*.btn:active.focus, */
+/*.btn.active.focus{*/
+/*    border-color: #c13db3 !important*/
+/*}*/
+
+
+/*------------------------------------------------------*/
+/* Login page */
+
+/*------------------------------------------------------*/
+/* Dropdown menu */
+
+
+/*------------------------------------------------------*/
+/* List Items */
+
+.list-group a{
+    font-family: 'Roboto', sans-serif;
+    font-size: 15px;
+    color: #394347; /*LstTxt*/
+}
+
+.list-group-item{
+    background-color: #f5f5f5 !important;
+}
+
+/*.list-group-item:hover, */
+/*button.list-group-item:hover, */
+/*a.list-group-item:focus, */
+/*button.list-group-item:focus {*/
+/*    text-decoration: none;*/
+/*    color: #f9f5f5;*/
+/*    background-color: #f5f5f5;*/
+/*}*/
+
+.list-group-item:hover, 
+a.list-group-item:focus{
+    background-color: #48717F !important; /*LstHvrBk*/
+    color: #f9f5f5 !important /*LstHvrTxt*/
+}
+
+/*------------------------------------------------------*/
+/* Badges */
+
+.badge-error {
+    background-color: #b94a48; 
+}
+
+.badge-error:hover {
+    background-color: #953b39; 
+}
+
+.badge-success {
+    background-color: #468847;
+}
+
+.badge-success:hover {
+    background-color: #356635;
+}
+
+/*------------------------------------------------------*/
+/*fa colours*/
+
+.fa-pencil {
+    color: #adae9e; /*faIcn*/
+}
+.fa-trash{
+    color: #adae9e; /*faIcn*/
+}
+.fa-plus{
+    color: #adae9e; /*faIcn*/
+}
+
+
+/*------------------------------------------------------*/
+/*Forms*/
+
+
+/*------------------------------------------------------*/
+/* Video page */
+
+#video_list_container{
+    border-color: #adae9e; /*CntrBrd*/
+}
+
+
+/*------------------------------------------------------*/
+/* Category  */
+
+#category_list_container{
+    border-color: #adae9e; /*CntrBrd*/
+}
+
+/*------------------------------------------------------*/
+/* Snippet page */
+
+#snippet_list_container {
+    border-color: #adae9e; /*CntrBrd*/
+}
+
+

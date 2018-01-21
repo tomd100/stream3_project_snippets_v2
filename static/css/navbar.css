@@ -1,20 +1,88 @@
+/* 
+colours: 11
+#21677F: GenBk : general background 
+#21677F: GenBord : general border 
+#fff: BrndTxt : brand title text
+#fff: BrndHvrBk : brand hover background
+#fff: MenuTxt : menu text 
+#fff: MenuTxtHvr : menu text hover
+#35A4CC: MenuHvrBk : menu item hover background 
+#fff: MenuItemSelTxt : menu item selected text 
+#48717F: MenuItemSelBk : menu item selected background 
+#fff: DropItemHvrTxt : dropdown menu item hover text
+#35A4CC: DropItemHvrBk : dropdown menu item hover background
+*/
+
+/* Previous colors */
+
+
+/* navbar */
+
+.navbar-default {
+    background-image: none;
+    background-color: #21677F !important; /*GenBk*/
+    border-color: #21677F !important; /*GenBord*/
+}
+
+.nav{
+    background-image: none;
+    background-color: #21677F !important; /*GenBk*/
+    border-color: #21677F !important; /*GenBord*/
+}
+
+.navbar{
+    background-image: none;
+    background-color: #21677F !important; /*GenBk*/
+    border-color: #21677F !important; /*GenBord*/
+}
+
 /*------------------------------------------------------*/
-/*fa colours*/
-:root {
-    --fa-colour: #adae9e;
+
+/* brand title colour*/
+.navbar-default .navbar-brand{
+    color: #fff !important; /*BrndTxt*/
 }
-:root{
-    --link_colour: #adae9e;
+
+/* brand text hover colour */
+.navbar-default .navbar-brand:hover:hover,
+.navbar-default .navbar-brand:focus:focus {
+    color: #fff !important; /*BrndHvrBk*/
 }
-.fa-pencil {
-    color: var(--fa-colour);
+
+/*------------------------------------------------------*/
+/*------------------------------------------------------*/
+
+/* menu item text */
+.navbar-default 
+.navbar-nav>li>a {
+    color: #fff !important; /*MenuTxt*/
 }
-.fa-trash{
-    color: var(--fa-colour);
+
+/* menu item hover */
+.navbar-default .navbar-nav>li>a:hover, 
+.navbar-default .navbar-nav>li>a:focus {
+    color: #fff !important; /*MenuTxtHvr*/
+    background-color: #35A4CC !important; /*MenuHvrBk*/
 }
-.fa-plus{
-    color: var(--fa-colour);
+
+/* menu item selected: text and background */
+.navbar-default .navbar-nav>.open>a, 
+.navbar-default .navbar-nav>.open>a:hover, 
+.navbar-default .navbar-nav>.open>a:focus {
+    background-color: #48717F !important; /*MenuItemSelBk*/
+    color: #fff !important; /*MenuItemHvrTxt*/
 }
+
+/* dropdown menu items: hover text and background*/
+.dropdown-menu>li>a:hover, 
+.dropdown-menu>li>a:focus {
+    text-decoration: none;
+    color: #fff !important; /*DropItemHvrTxt*/
+    background-color: #35A4CC !important; /*DropItemHvrBk*/
+}
+
+/*------------------------------------------------------*/
+
 
 .btn_plus{
     background-color: Transparent;
@@ -149,24 +217,4 @@ h3{
     border-color: var(--link-colour);
 }
 
-/*------------------------------------------------------*/
-/*------------------------------------------------------*/
-/* Snippet Controls */
 
-
-/*a.snippet_links{*/
-/*    color: var(--link-colour);*/
-/*    text-decoration: none;    */
-/*}*/
-
-/*a.snippet_links:link a.snippet_links:visited {*/
-/*    color: var(--link-colour);*/
-/*}*/
-
-/*a.snippet_links:hover{*/
-/*    color: var(--link-colour);*/
-/*}*/
-
-
-/*------------------------------------------------------*/
-    

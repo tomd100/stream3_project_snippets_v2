@@ -13,9 +13,11 @@ Video Page
     
     <form action="" method="post">
         {% csrf_token %}
-        <p>Are you sure you want to delete "{{ object }}"?</p>
-        <input type="submit" value="Confirm" />
-        <button type='button' onclick='window.history.back()'>Cancel</button>
+        <p>Are you sure you want to delete the following Video?</p>
+        <h3>"{{ object }}"</h3>
+        <br>
+        <button class='btn btn-primary' type="submit" value="Confirm">Confirm</button>
+        <button class='btn btn-primary' type='button' onclick='window.history.back()'>Cancel</button>
     </form>
 
 </div>
