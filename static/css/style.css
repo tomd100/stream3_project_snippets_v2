@@ -1,0 +1,144 @@
+/*------------------------------------------------------*/
+/*fa colours*/
+:root {
+    --fa-colour: #adae9e;
+}
+:root{
+    --link_colour: #adae9e;
+}
+.fa-pencil {
+    color: var(--fa-colour);
+}
+.fa-trash{
+    color: var(--fa-colour);
+}
+.fa-plus{
+    color: var(--fa-colour);
+}
+
+.btn_plus{
+    background-color: Transparent;
+    background-repeat:no-repeat;
+    border: none;
+    cursor:pointer;
+    overflow: hidden;
+    outline:none;
+}
+/*------------------------------------------------------*/
+/* Opening Page */
+
+#opening-page{
+    border:solid;
+    background-image: url("../images/pablo (1).png");
+    background-size: cover;
+    background-color: #cccccc;
+}
+
+
+/*------------------------------------------------------*/
+/* Base html */
+
+/* navbar */
+.navbar-brand {
+    padding-left: 0;
+    font-size: 34px !important;
+    font-family: 'Roboto Slab', serif !important;
+}
+
+.navbar-collapse a{
+    font-size: 16px !important;
+    font-family: 'Roboto', sans-serif !important;
+}
+
+/* titles */
+.page-title h1{
+    font-family: 'Roboto', sans-serif;
+    /*font-size: 24px */
+}
+
+h3{
+    font-family: 'Roboto', sans-serif;
+}
+
+/*------------------------------------------------------*/
+/* Login page */
+
+/*------------------------------------------------------*/
+/* Dropdown menu */
+
+
+/*------------------------------------------------------*/
+/* List Items */
+
+.list-group a{
+    font-family: 'Roboto', sans-serif;
+    font-size: 15px;
+    color: var(--link-colour);
+}
+/*------------------------------------------------------*/
+/* Badges */
+
+.badge-error {
+    background-color: #b94a48;
+}
+
+.badge-error:hover {
+    background-color: #953b39;
+}
+
+.badge-success {
+    background-color: #468847;
+}
+
+.badge-success:hover {
+    background-color: #356635;
+}
+
+
+/*------------------------------------------------------*/
+/*Forms*/
+
+
+/*------------------------------------------------------*/
+/* Video page */
+
+#video_list_container{
+    border-color: var(--link-colour);
+}
+
+
+/*------------------------------------------------------*/
+/* Category  */
+
+#category_list_container{
+    border-color: var(--link-colour);
+}
+
+/*------------------------------------------------------*/
+/* Snippet page */
+
+#snippet_list_container {
+    border-color: var(--link-colour);
+}
+
+/*------------------------------------------------------*/
+/*------------------------------------------------------*/
+/* Snippet Controls */
+
+
+/*a.snippet_links{*/
+/*    color: var(--link-colour);*/
+/*    text-decoration: none;    */
+/*}*/
+
+/*a.snippet_links:link a.snippet_links:visited {*/
+/*    color: var(--link-colour);*/
+/*}*/
+
+/*a.snippet_links:hover{*/
+/*    color: var(--link-colour);*/
+/*}*/
+
+
+/*------------------------------------------------------*/
+    

@@ -10,11 +10,13 @@
     </ul>
 </li>
 
+
+
 <li class="dropdown">
     <a href="#" data-toggle="dropdown" class="dropdown-toggle"><i class="fa fa-plus-square-o"></i> Videos <b class="caret"></b></a>
     <ul class="dropdown-menu">
-        <li><a href="{% url 'video-list' 0 %}">List All Videos </a></li>
-        <li><a href="{% url 'video-list' 9999 %}">List Uncategorised Videos </a></li>
+        <li><a href="{% url 'video-list' 0 %}" onclick="setVideoSubTitle('All Videos')">List All Videos </a></li>
+        <li><a href="{% url 'video-list' 9999 %}" onclick="setVideoSubTitle('Uncategorised Videos')">List Uncategorised Videos </a></li>
         <li><a href="{% url 'video-add' %}">Add New Video </a></li>
         <li><a id="edit_list2_menu" class="disabled" href='#' onclick="changeListItems('edit_list', 2)">Edit Video</a></li>
         <li><a id="delete_list2_menu" class="disabled" href='#' onclick="changeListItems('delete_list', 2)">Delete Video</a></li>

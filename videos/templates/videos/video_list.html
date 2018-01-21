@@ -27,7 +27,7 @@ Video Page
                 href="{% url "video-list" category.id %}">{{ category }}</a></span>
                 
             <span class="edit_list1" hidden><a class="list-group-item list-group-item-action d-flex justify-content-between align-items-center" 
-                href="{% url "videocategory-edit" category.id %}">{{ category }}<span class="badge badge-success">edit</span></a></span>
+                href="{% url "videocategory-edit" category.id %}">{{ category }}<span class="badge badge-success ">edit</span></a></span>
             
             <span class="delete_list1" hidden><a class="list-group-item list-group-item-action d-flex justify-content-between align-items-center" 
                 href="{% url "videocategory-delete" category.id %}">{{ category }}<span class="badge badge-error">del</span></a></span>

@@ -3,10 +3,6 @@
 
 #opening-page{
     height:600px;
-    border:solid;
-    background-image: url("../images/pablo (1).png");
-    background-size: cover;
-    background-color: #cccccc;
 }
 
 /*------------------------------------------------------*/
@@ -20,6 +16,10 @@ body{
     position: absolute;
 }
 
+.navbar-nav>li>a {
+    padding-top: 20px !important;
+    min-height: 60px !important;
+}
 /*------------------------------------------------------*/
 /* Login page */
 
@@ -46,78 +46,20 @@ body{
 .badge {
     margin-top:3px;
     padding: 1px 9px 2px;
-    font-size: 12.025px;
-    font-weight: bold;
-    white-space: nowrap;
-    color: #ffffff;
-    background-color: #999999;
     -webkit-border-radius: 9px;
     -moz-border-radius: 9px;
     border-radius: 9px;
 }
+
 .badge:hover {
     color: #ffffff;
     text-decoration: none;
     cursor: pointer;
 }
-.badge-error {
-    background-color: #b94a48;
-}
-.badge-error:hover {
-    background-color: #953b39;
-}
-.badge-success {
-    background-color: #468847;
-}
-.badge-success:hover {
-    background-color: #356635;
-}
+
 
 /*------------------------------------------------------*/
-/*fa colours*/
-:root {
-    --fa-colour: #adae9e;
-}
-:root{
-    --link_colour: #adae9e;
-}
-.fa-pencil {
-    color: var(--fa-colour);
-}
-.fa-trash{
-    color: var(--fa-colour);
-}
-.fa-plus{
-    color: var(--fa-colour);
-}
-
-a.video_links{
-    color: var(--link-colour);
-    text-decoration: none;  
-}
-
-/*------------------------------------------------------*/
-
-/* Video page */
-
-.video-wrapper {
-  position: relative;
-  padding-bottom: 75%;
-  /* 4:3 aspect ratio */
-  padding-bottom: 56.25%;
-  /* 16:9 aspect ratio */
-  padding-top: 0;
-  height: 0;
-}
-.video-wrapper iframe {
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-}
-
-/*------------------------------------------------------*/
+/*Forms*/
 
 .field_input_label{
     margin:0px;
@@ -127,10 +69,19 @@ a.video_links{
     width: 500px;
 }
 
+#id_category{
+    width:300px;
+}
+
+/*------------------------------------------------------*/
+/* Video page */
+
+/*------------------------------------------------------*/
+/* Category */
+
 #category_list_container{
     border-top:solid;
     border-bottom:solid;
-    border-color: var(--link-colour);
     border-width: thin;
     max-height: 350px;
     overflow-y:scroll;
@@ -141,7 +92,6 @@ a.video_links{
 #video_list_container{
     border-top:solid;
     border-bottom:solid;
-    border-color: var(--link-colour);
     border-width: thin;
     max-height: 350px;
     overflow-y:scroll;
@@ -162,15 +112,27 @@ a.video_links{
     width:500px;
 }
 
-/*------------------------------------------------------*/
-/* Category page */
-
-#id_category{
-    width:300px;
-}
 
 /*------------------------------------------------------*/
 /* Snippet page */
+
+.video-wrapper {
+  position: relative;
+  padding-bottom: 75%;
+  /* 4:3 aspect ratio */
+  padding-bottom: 56.25%;
+  /* 16:9 aspect ratio */
+  padding-top: 0;
+  height: 0;
+}
+
+.video-wrapper iframe {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+}
 
 #yt_player{
     border:solid;
@@ -185,7 +147,6 @@ a.video_links{
     border-top:solid;
     border-bottom:solid;
     border-width: thin;
-    border-color: var(--link-colour);
     max-height: 350px;
     overflow-y:scroll;
     padding-top:15px;
@@ -195,28 +156,6 @@ a.video_links{
 .list_item{
     margin-left:20px;
     margin-right:20px;
-}
-
-a.snippet_links{
-    color: var(--link-colour);
-    text-decoration: none;    
-}
-
-a.snippet_links:link a.snippet_links:visited {
-    color: var(--link-colour);
-}
-
-a.snippet_links:hover{
-    color: var(--link-colour);
-}
-
-.btn_plus{
-    background-color: Transparent;
-    background-repeat:no-repeat;
-    border: none;
-    cursor:pointer;
-    overflow: hidden;
-    outline:none;
 }
 
 /*------------------------------------------------------*/
@@ -232,7 +171,6 @@ a.snippet_links:hover{
     border-width: thin;
 }
 
-
 .snippet_title{
     width:400px;
 }
@@ -246,11 +184,6 @@ a.snippet_links:hover{
     padding-left:10px;
     padding-top:20px;
 }
-
-/*.snippet_controls1>div{*/
-/*    padding:0px;*/
-/*    margin:0px;*/
-/*}*/
 
 .snippet_markers{
     width:60px;
