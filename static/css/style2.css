@@ -32,6 +32,12 @@ colours: 26
 
 /* navbar */
 
+.navbar-brand {
+    padding-left: 0;
+    font-size: 34px !important;
+    font-family: 'Roboto Slab', serif !important;
+}
+
 .navbar-default {
     background-image: none;
     background-color: #21677F !important; /*GenBk*/
@@ -48,6 +54,11 @@ colours: 26
     background-image: none;
     background-color: #21677F !important; /*GenBk*/
     border-color: #21677F !important; /*GenBrd*/
+}
+
+.navbar-collapse a{
+    font-size: 16px !important;
+    font-family: 'Roboto', sans-serif !important;
 }
 
 /*------------------------------------------------------*/
@@ -183,13 +194,13 @@ h4{
 }
 
 /* check on this: */
-.btn.focus, 
-.btn:active.focus, 
-.btn.active.focus,
-.btn:active:focus, 
-.btn.active:focus {
-    box-shadow: #c13db3 !important
-}
+/*.btn.focus, */
+/*.btn:active.focus, */
+/*.btn.active.focus,*/
+/*.btn:active:focus, */
+/*.btn.active:focus {*/
+/*    box-shadow: #c13db3 !important*/
+/*}*/
 
 /*.btn:active:focus, */
 /*.btn.active:focus, */

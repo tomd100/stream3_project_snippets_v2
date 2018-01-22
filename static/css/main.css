@@ -224,6 +224,11 @@ body{
     width:90px;
 }
 
+#skip_label{
+    min-width: 115px;
+}
+
+
 .set_button{
     color:blue;
 }
@@ -267,8 +272,9 @@ body{
 .snippet_controls3{
     border-bottom:solid;
     border-width: thin;
-    height: 80px;
+    max-height: 80px;
     padding-left:10px;
+    padding-top:10px;
 }
 
 /*------------------------------------------------------*/

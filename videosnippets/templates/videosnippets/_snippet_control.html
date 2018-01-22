@@ -24,8 +24,8 @@
                 <button type="button" class="btn_plus set_button" onclick="setMarker(1)"><i class="fa fa-plus"></i></button><input type='number' name='end' step='0.1' id='id_end' class='marker_field'>
             </p>    
             <p>
-                <label class="set_label" for="jump">Jump Back:</label>
-                <input type='number' name='jump' step='0.1' id='id_jump' class='marker_field'>
+                <label class="set_label" id='skip_label' for="skip">Skip Amount:</label>
+                <input type='number' name='skip' step='0.1' id='id_jump' class='marker_field'>
             </p>
         </div>
     
@@ -34,7 +34,8 @@
         <div class='snippet_controls2'>
             <p>
                 <button type="button"  id="play_btn" class="btn btn-info" onclick="togglePlay()">Play</button>
-                <button type="button" class="btn btn-info" onclick="jumpBack()">Jump Back</button>
+                <button type="button" class="btn btn-info" onclick="jumpBack(0)"><<</button>
+                <button type="button" class="btn btn-info" onclick="jumpBack(1)">>></button>
                 <button type="button" class="btn btn-info" onclick="playRestart()">Restart</button>
             </p>
         </div>

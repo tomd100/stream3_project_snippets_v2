@@ -168,13 +168,26 @@ function playSnippet() {
     player.playVideo();
 }
 
-function jumpBack(){
+function jumpBack(dir){
     var seconds = parseFloat(document.getElementById('id_jump').value)
-    var current, back;
-    current = player.getCurrentTime()
-    if (current - seconds >= 0) {
-        back = current - seconds;
-        player.seekTo(back);
+    var current, back, fwd;
+    current = player.getCurrentTime();
+    end = player.getDuration();
+    if(dir == 0){
+        if (current - seconds >= 0) {
+            back = current - seconds;
+            player.seekTo(back);
+        } else {
+            player.seekTo(0.1);
+        }
+    } else {
+        if (current + seconds < end){
+            console.log(end)
+            fwd = current + seconds;
+            player.seekTo(fwd);
+        } else {
+            player.seekTo(end);
+        } 
     }
 }    
 
