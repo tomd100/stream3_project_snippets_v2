@@ -23,8 +23,8 @@ found_colours = 0;
 colour_count = 0;
 loop_count = 0;
 
-file_name = './static/css/style2.css';
-outfile_name = './static/css/style2_new.css';
+file_name = './static/css/style.css';
+outfile_name = './static/css/style_gen.css';
 
 write_outfile = 0;
 
