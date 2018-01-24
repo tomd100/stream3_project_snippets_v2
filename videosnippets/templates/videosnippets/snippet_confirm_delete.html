@@ -14,7 +14,7 @@ Snippet Page
     
     <form action="" method="post">
         {% csrf_token %}
-        <p>Are you sure you want to delete the following Snippet?</p>
+        <p class="confirm">Are you sure you want to delete the following Snippet?</p>
         <h3>"{{ object }}"</h3>
         <br>
         <button class='btn btn-primary' type="submit" value="Confirm">Confirm</button>

@@ -26,7 +26,7 @@ def login(request):
                                     password=form.cleaned_data['password'])
             if user is not None:
                 auth.login(request, user);
-                return redirect(profile)
+                return redirect(home)
             else:
                 messages.success(request, "Your user name or password was not recognised ", extra_tags='danger') 
     else:
@@ -60,6 +60,12 @@ def register(request):
 
     return render(request, "register.html", {'form': form})
     
+#-------------------------------------------------------------------------------
+
+@login_required(login_url="/accounts/login")
+def home(request):
+    return render(request, "home.html");
+
 #-------------------------------------------------------------------------------
 
 @login_required(login_url="/accounts/login")

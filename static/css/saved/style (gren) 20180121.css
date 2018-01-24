@@ -94,7 +94,7 @@ colours: 26
 .navbar-default .navbar-nav>.open>a, 
 .navbar-default .navbar-nav>.open>a:hover, 
 .navbar-default .navbar-nav>.open>a:focus {
-    background-color: #35A4CC !important; /*MenuItemSelBk*/
+    background-color: #48717F !important; /*MenuItemSelBk*/
     color: #fff !important; /*MenuItemHvrTxt*/
 }
 
@@ -145,25 +145,25 @@ input{
 
 .page-title h1{
     font-family: 'Roboto', sans-serif;
-    color: #48717F; /*h1Ttl*/
+    color: #21677F; /*h1Ttl*/
 }
 
 h3{
     font-family: 'Roboto', sans-serif;
-    color: #48717F; /*h3Ttl*/
+    color: #21677F; /*h3Ttl*/
 }
 
 h4{
     font-family: 'Roboto', sans-serif;
-    color: #48717F; /*h4Ttl*/
+    color: #21677F; /*h4Ttl*/
 }
 
 .speed_loop_label h5 {
-    color:#48717F; /*CtlLbl*/
+    color:#21677F; /*CtlLbl*/
 }
 
 .set_label{
-    color:#48717F; /*CtlLbl*/
+    color:#21677F; /*CtlLbl*/
 }
 
 /*check this one*/
@@ -176,21 +176,21 @@ h4{
 .btn-info {
     background-image: none !important;
     color: #ffffff !important; /*BtnTxt*/
-    background-color: #48717F !important; /*BtnBk*/
-    border-color: #48717F !important; /*BtnBrd*/
+    background-color: #bd2f83 !important; /*BtnBk*/
+    border-color: #c13db3 !important; /*BtnBrd*/
 }
 .btn-sm{
     background-image: none !important;
     color: #ffffff !important; /*BtnTxt*/
-    background-color: #48717F !important; /*BtnBk*/
-    border-color: #48717F !important; /*BtnBrd*/
+    background-color: #bd2f83 !important; /*BtnBk*/
+    border-color: #c13db3 !important; /*BtnBrd*/
 }
 
 .btn-primary {
     background-image: none !important;
     color: #ffffff !important; /*BtnTxt*/
-    background-color: #48717F !important; /*BtnBk*/
-    border-color: #48717F !important; /*BtnBrd*/
+    background-color: #bd2f83 !important; /*BtnBk*/
+    border-color: #c13db3 !important; /*BtnBrd*/
 }
 
 /* check on this: */
@@ -224,7 +224,7 @@ h4{
 .list-group a{
     font-family: 'Roboto', sans-serif;
     font-size: 15px;
-    color: #394347; /*LstTxt*/
+    color: #adae9e; /*LstTxt*/
 }
 
 .list-group-item{
@@ -242,7 +242,7 @@ h4{
 
 .list-group-item:hover, 
 a.list-group-item:focus{
-    background-color: #48717F !important; /*LstHvrBk*/
+    background-color: #12a9ec !important; /*LstHvrBk*/
     color: #f9f5f5 !important /*LstHvrTxt*/
 }
 

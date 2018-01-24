@@ -173,7 +173,7 @@ function jumpBack(dir){
     var current, back, fwd;
     current = player.getCurrentTime();
     end = player.getDuration();
-    if(dir == '0'){
+    if(dir == 0){
         if (current - seconds >= 0) {
             back = current - seconds;
             player.seekTo(back);

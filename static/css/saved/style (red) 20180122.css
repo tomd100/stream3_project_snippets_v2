@@ -1,29 +1,29 @@
 /* 
 colours: 26
-#21677F: GenBk : general background 
-#21677F: GenBrd : general border 
+#FF0000: GenBk : general background 
+#FF0000: GenBrd : general border 
 #fff: BrndTxt : brand title text
 #fff: BrndHvrBk : brand hover background
 #fff: MenuTxt : menu text 
 #fff: MenuTxtHvr : menu text hover
-#35A4CC: MenuHvrBk : menu item hover background 
+#CC0000: MenuHvrBk : menu item hover background 
 #fff: MenuItemSelTxt : menu item selected text 
-#35A4CC: MenuItemSelBk : menu item selected background 
+#CC0000: MenuItemSelBk : menu item selected background 
 #fff: DropItemHvrTxt : dropdown menu item hover text
-#35A4CC: DropItemHvrBk : dropdown menu item hover background
+#FF0000: DropItemHvrBk : dropdown menu item hover background
 #cccccc: OpnPgBk : opening page background
 #fafafa: BodyBk : body background
 #fafafa: InpBk : input field background
-#48717F: h1Ttl : h1 title
-#48717F: h3Ttl : h3 title
-#48717F: h4Ttl : h4 title
+#394347: h1Ttl : h1 title
+#394347: h3Ttl : h3 title
+#394347: h4Ttl : h4 title
 #ffffff: BtnTxt: button text
-#48717F: BtnBk : button background
-#48717F: BtnBrd : button border
+#7F0000: BtnBk : button background
+#7F0000: BtnBrd : button border
 #394347: LstTxt : list text
-#48717F: LstHvrBk : list hover background
+#FF0000: LstHvrBk : list hover background
 #f9f5f5: LstHvrTxt : list hover text
-#48717F: CtlLbl : speed loop labels
+#394347: CtlLbl : speed loop labels
 #adae9e: faIcn : fa icons
 #adae9e: CntrBrd : container border colour
 */
@@ -40,20 +40,20 @@ colours: 26
 
 .navbar-default {
     background-image: none;
-    background-color: #21677F !important; /*GenBk*/
-    border-color: #21677F !important; /*GenBrd*/
+    background-color: #FF0000 !important; /*GenBk*/
+    border-color: #FF0000 !important; /*GenBrd*/
 }
 
 .nav{
     background-image: none;
-    background-color: #21677F !important; /*GenBk*/
-    border-color: #21677F !important; /*GenBrd*/
+    background-color: #FF0000 !important; /*GenBk*/
+    border-color: #FF0000 !important; /*GenBrd*/
 }
 
 .navbar{
     background-image: none;
-    background-color: #21677F !important; /*GenBk*/
-    border-color: #21677F !important; /*GenBrd*/
+    background-color: #FF0000 !important; /*GenBk*/
+    border-color: #FF0000 !important; /*GenBrd*/
 }
 
 .navbar-collapse a{
@@ -87,14 +87,14 @@ colours: 26
 .navbar-default .navbar-nav>li>a:hover, 
 .navbar-default .navbar-nav>li>a:focus {
     color: #fff !important; /*MenuTxtHvr*/
-    background-color: #35A4CC !important; /*MenuHvrBk*/
+    background-color: #CC0000 !important; /*MenuHvrBk*/
 }
 
 /* menu item selected: text and background */
 .navbar-default .navbar-nav>.open>a, 
 .navbar-default .navbar-nav>.open>a:hover, 
 .navbar-default .navbar-nav>.open>a:focus {
-    background-color: #35A4CC !important; /*MenuItemSelBk*/
+    background-color: #CC0000 !important; /*MenuItemSelBk*/
     color: #fff !important; /*MenuItemHvrTxt*/
 }
 
@@ -103,7 +103,7 @@ colours: 26
 .dropdown-menu>li>a:focus {
     text-decoration: none;
     color: #fff !important; /*DropItemHvrTxt*/
-    background-color: #35A4CC !important; /*DropItemHvrBk*/
+    background-color: #FF0000 !important; /*DropItemHvrBk*/
 }
 
 /*------------------------------------------------------*/
@@ -145,25 +145,25 @@ input{
 
 .page-title h1{
     font-family: 'Roboto', sans-serif;
-    color: #48717F; /*h1Ttl*/
+    color: #394347; /*h1Ttl*/
 }
 
 h3{
     font-family: 'Roboto', sans-serif;
-    color: #48717F; /*h3Ttl*/
+    color: #394347; /*h3Ttl*/
 }
 
 h4{
     font-family: 'Roboto', sans-serif;
-    color: #48717F; /*h4Ttl*/
+    color: #394347; /*h4Ttl*/
 }
 
 .speed_loop_label h5 {
-    color:#48717F; /*CtlLbl*/
+    color:#394347; /*CtlLbl*/
 }
 
 .set_label{
-    color:#48717F; /*CtlLbl*/
+    color:#394347; /*CtlLbl*/
 }
 
 /*check this one*/
@@ -176,21 +176,21 @@ h4{
 .btn-info {
     background-image: none !important;
     color: #ffffff !important; /*BtnTxt*/
-    background-color: #48717F !important; /*BtnBk*/
-    border-color: #48717F !important; /*BtnBrd*/
+    background-color: #7F0000 !important; /*BtnBk*/
+    border-color: #7F0000 !important; /*BtnBrd*/
 }
 .btn-sm{
     background-image: none !important;
     color: #ffffff !important; /*BtnTxt*/
-    background-color: #48717F !important; /*BtnBk*/
-    border-color: #48717F !important; /*BtnBrd*/
+    background-color: #7F0000 !important; /*BtnBk*/
+    border-color: #7F0000 !important; /*BtnBrd*/
 }
 
 .btn-primary {
     background-image: none !important;
     color: #ffffff !important; /*BtnTxt*/
-    background-color: #48717F !important; /*BtnBk*/
-    border-color: #48717F !important; /*BtnBrd*/
+    background-color: #7F0000 !important; /*BtnBk*/
+    border-color: #7F0000 !important; /*BtnBrd*/
 }
 
 /* check on this: */
@@ -242,7 +242,7 @@ h4{
 
 .list-group-item:hover, 
 a.list-group-item:focus{
-    background-color: #48717F !important; /*LstHvrBk*/
+    background-color: #FF0000 !important; /*LstHvrBk*/
     color: #f9f5f5 !important /*LstHvrTxt*/
 }
 

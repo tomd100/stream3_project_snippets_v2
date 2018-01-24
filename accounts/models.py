@@ -12,6 +12,7 @@ from django import forms
 class UserProfile(models.Model):
     user = models.OneToOneField(User, on_delete=models.CASCADE, related_name="profile")
     image = models.ImageField(upload_to="avatars", blank=True, null=True)
+    stripe_user_id = models.CharField(max_length=50, blank=True)
     sub_type = models.IntegerField(default=0)
     sub_start_date=models.DateField(blank=False, default=timezone.now)
     sub_nextreset_date=models.DateField(blank=False, default=timezone.now)
