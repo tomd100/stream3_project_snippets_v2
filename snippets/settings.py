@@ -153,7 +153,7 @@ STATICFILES_DIRS = (
 MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
 MEDIA_URL = '/media/'
 
-print("using normal")
+
 if USE_S3:
    print("using s3")
    AWS_S3_OBJECT_PARAMETERS = {  
@@ -174,46 +174,9 @@ if USE_S3:
    MEDIAFILES_LOCATION = 'media'
    DEFAULT_FILE_STORAGE = 'custom_storages.MediaStorage'
    MEDIA_URL = "https://%s/%s/" % (AWS_S3_CUSTOM_DOMAIN, MEDIAFILES_LOCATION)
-
-
-# AWS_S3_OBJECT_PARAMETERS ={
-#     'Expires': 'Thu, 31 Dec 2099 20:00:00 GMT',
-#     'CacheControl': 'max-age=94608000'
-# }
-
-# AWS_ACCESS_KEY_ID=os.environ.get('AWS_ACCESS_KEY_ID')
-# AWS_SECRET_ACCESS_KEY=os.environ.get('AWS_SECRET_ACCESS_KEY')
-# AWS_STORAGE_BUCKET_NAME=os.environ.get('AWS_STORAGE_BUCKET_NAME')
-# AWS_S3_REGION_NAME=os.environ.get('AWS_S3_REGION_NAME')
-
-# AWS_S3_CUSTOM_DOMAIN = '%s.s3.amazonaws.com' % AWS_STORAGE_BUCKET_NAME
-
-# STATIC_URL = '/static/'
-# STATICFILES_DIRS = (
-#     os.path.join(BASE_DIR, "static"),
-# )
-# STATICFILES_LOCATION='static'
-# STATICFILES_STORAGE='custom_storages.StaticStorage'
-
-# MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
-# MEDIA_URL = '/media/'
-
-# MEDIAFILES_LOCATION = 'media'
-# DEFAULT_FILE_STORAGE = 'custom_storages.MediaStorage'
-
-# MEDIA_URL = "https://%s/%s/" % (AWS_S3_CUSTOM_DOMAIN, MEDIAFILES_LOCATION)
-
-# DEFAULT_FILE_STORAGE = 'custom_storages.MediaStorage'
-
-# STATICFILES_DIRS = (os.path.join(BASE_DIR, "static"),)
-# STATICFILES_LOCATION='static'
-# STATICFILES_STORAGE='custom_storages.StaticStorage'
-
-# MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
-# MEDIAFILES_LOCATION = 'media'
-# MDEIAFILES_STORAGE = 'custom_storages.MediaStorage'
-# MEDIA_URL = "https://%s/%s/" % (AWS_S3_CUSTOM_DOMAIN, MEDIAFILES_LOCATION)
-
+else:
+    print("using normal")
+   
 # ------------------------------------------------------------------------------
 
 MESSAGE_STORAGE = 'django.contrib.messages.storage.session.SessionStorage'

@@ -69,8 +69,9 @@ body{
     width: 500px;
 }
 
-#id_category{
-    width:300px;
+select[name="category"] {
+    width:350px;
+    height:25px;
 }
 
 .confirm{
@@ -91,7 +92,7 @@ body{
 /*------------------------------------------------------*/
 /* Category */
 
-#id_category{
+input[name="category"]{
     padding-left: 10px;
     width:350px;
     height:25px;    

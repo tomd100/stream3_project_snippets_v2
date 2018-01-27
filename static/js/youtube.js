@@ -229,8 +229,8 @@ function togglePlay(){
     if(play_btn.classList.contains("tmp"))
     {
         play_btn.textContent = 'Pause'
-        // player.playVideo();
-        playSnippet()
+        player.playVideo();
+        // playSnippet()
     } else {
         play_btn.textContent = 'Play'
         player.pauseVideo();
