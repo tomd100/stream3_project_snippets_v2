@@ -5,6 +5,7 @@ import re
 
 
 from django.views.generic import ListView, DetailView, CreateView, UpdateView, DeleteView
+from django.contrib.auth.mixins import UserPassesTestMixin
 
 from .models import Video
 from .forms import VideoForm
@@ -12,6 +13,7 @@ from categories.models import VideoCategory
 from videosnippets.models import Snippet
 
 from django.urls import reverse_lazy
+
 
 #-------------------------------------------------------------------------------
 # Video Views
@@ -38,6 +40,18 @@ class VideoListView(ListView):
 
 #-------------------------------------------------------------------------------
 
+class CheckSubVidMixin(UserPassesTestMixin):
+    def test_func(self):
+        valid_action = True;
+        vid_count = Video.objects.all().filter(user=self.request.user).count()
+        if self.request.user.profile.sub_type == 0 and vid_count >= 1:
+            valid_action = False;
+        return valid_action;
+        
+    login_url = reverse_lazy('subscribe')
+    def get_redirect_field_name(self):
+        return None;
+        
 class RequestFormKwargsMixin(object):
     """
     CBV mixin which puts the request into the form kwargs.
@@ -50,7 +64,7 @@ class RequestFormKwargsMixin(object):
       kwargs.update({"request": self.request})
       return kwargs
 
-class VideoCreateView(RequestFormKwargsMixin, CreateView):
+class VideoCreateView(RequestFormKwargsMixin, CheckSubVidMixin, CreateView):
     model = Video
     form_class = VideoForm
     # fields = ['title', 'category', 'url']

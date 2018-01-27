@@ -30,6 +30,10 @@ colours: 26
 
 /* Body */
 
+input:-webkit-autofill {
+    -webkit-box-shadow: 0 0 0px 1000px white inset;
+}
+
 body{
     /*background: linear-gradient(-90deg, #21677F, hsla(0,30%,100%,0));*/
     /*background: linear-gradient(-90deg, #35A4CC, #21677F);*/

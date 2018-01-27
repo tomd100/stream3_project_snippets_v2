@@ -1,10 +1,10 @@
 
 
 <div class='col-md-offset-1 col-md-6'>
-    <h3>Welcome to the subscription page.</h3>
+    <h3>Subscription Type</h3>
     
     <div>
-        {% include '_sub_text1.html' %}
+        <p id='sub_selection_para'> {{subscription_form.select_sub}}</p>
     </div>    
     <form id="subscription_form" ">
     
@@ -14,7 +14,7 @@
         <p hidden id='sub_desc'>{{ subscription_form.description }}</p>
     
         <div>
-            <button id='sub_selection_button' type='button' onclick='showCheckout(1)' class='btn btn-primary'>Continue</button>
+            <button disabled id='sub_selection_button' type='button' onclick='showCheckout(1)' class='btn btn-primary'>Continue</button>
             <button class='btn btn-primary' type='button' onclick='window.history.back()'>Cancel</button>
         </div>
     </form>

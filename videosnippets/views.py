@@ -4,7 +4,9 @@ from django.contrib import messages
 from django.urls import reverse_lazy
 from django.http import JsonResponse
 # from django.template.loader import render_to_string
+
 from django.views.generic import ListView, DetailView, CreateView, UpdateView, DeleteView, FormView
+from django.contrib.auth.mixins import UserPassesTestMixin
 
 from django.views.generic.edit import FormMixin
 from django.http import Http404
@@ -15,6 +17,7 @@ import time
 from .models import Snippet
 from videos.models import Video
 from .forms import SnippetSaveForm
+
 
 #-------------------------------------------------------------------------------
 
@@ -93,13 +96,26 @@ def snippet_save(request, snippet_id):
 
 #-------------------------------------------------------------------------------
 
-class SnippetCreateView(CreateView):
+class CheckSubSnipMixin(UserPassesTestMixin):
+    def test_func(self):
+        video = get_object_or_404(Video, pk=self.kwargs['pk']);
+        snippet_count = Snippet.objects.all().filter(video=video).count()
+        valid_action = True;
+        if self.request.user.profile.sub_type == 0 and snippet_count >= 3:
+            valid_action = False;
+        return valid_action;
+        
+    login_url = reverse_lazy('subscribe')
+    def get_redirect_field_name(self):
+        return None;
+        
+class SnippetCreateView(CheckSubSnipMixin, CreateView):
     model = Snippet
     fields = ['title', 'video', 'start']
-
+    
     def get_initial(self):
         return { 'video': self.kwargs['pk'] }
- 
+        
     def get_success_url(self):
         video_id = self.kwargs['pk']
         snippet_id = self.object.id

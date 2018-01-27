@@ -4,6 +4,7 @@ from django.contrib import messages
 import re
 
 from django.views.generic import ListView, DetailView, CreateView, UpdateView, DeleteView
+from django.contrib.auth.mixins import UserPassesTestMixin
 
 from .models import VideoCategory
 from .forms import VideoCategoryForm
@@ -11,8 +12,10 @@ from .forms import VideoCategoryForm
 from django.urls import reverse_lazy
 
 #-------------------------------------------------------------------------------
+
 #-------------------------------------------------------------------------------
 # Category Views
+
 
 class OwnObjectsMixin():
     def get_queryset(self):
@@ -24,7 +27,21 @@ class VideoCategoryListView(OwnObjectsMixin, ListView):
         
 #-------------------------------------------------------------------------------
 
-class VideoCategoryCreateView(CreateView):
+class CheckSubCatMixin(UserPassesTestMixin):
+    def test_func(self):
+        valid_action = True;
+        if self.request.user.profile.sub_type == 0:
+            valid_action = False;
+        return valid_action;
+        
+    login_url = reverse_lazy('subscribe')
+    def get_redirect_field_name(self):
+        return None;
+        
+
+#-------------------------------------------------------------------------------  
+
+class VideoCategoryCreateView(CheckSubCatMixin, CreateView):
     model = VideoCategory
     fields = ['category']
     success_url = reverse_lazy('video-list', kwargs={'cid': 0})

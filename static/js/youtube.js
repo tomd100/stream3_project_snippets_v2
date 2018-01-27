@@ -21,19 +21,20 @@ function onYouTubeIframeAPIReady() {
     videoId: videoid,
     playerVars: {
         'rel': 0, 
-        'autohide': 2, // 0,1,2
-        'color': 'red', // red,white
-        // 'controls': 0, // 0,1,2
-        'disablekb': 0, //0,1 
-        'enablejsapi': 1, // 0,1
-        'fs': 1, // 0,1
+        // 'autohide': 2, 
+        'color': 'red', 
+        // 'controls': 0, 
+        'disablekb': 0,  
+        // 'enablejsapi': 1, 
+        'fs': 1,
         'hl': 'en',
-        'iv_load_policy': 1, // 1,3  
-        'autoplay': 0, // 0,1 
+        'iv_load_policy': 1,  
+        'autoplay': 0,  
     },
     events: {
-        'onReady': initialize,
-        'onStateChange': onPlayerStateChange
+        // 'onReady': initialize,
+        'onReady': onPlayerReady,
+        // 'onStateChange': onPlayerStateChange
       }
     });
 }
@@ -41,17 +42,23 @@ function onYouTubeIframeAPIReady() {
 
 // 4. The API will call this function when the video player is ready.
 function onPlayerReady(event) {
-    event.target.stopVideo
+    // event.target.stopVideo
+    initialize()
+    player.addEventListener('onStateChange', onPlayerStateChange);
 }
 
+function onPlayerStateChange(event){
+    console.log("Player State Change")
+}
 // -----------------------------------------------------------------------------
 
 var time_update_interval
+
 function initialize(){
 
     // Update the controls on load
-    updateTimerDisplay();
-    updateProgressBar();
+    // updateTimerDisplay();
+    // updateProgressBar();
 
     // Clear any old interval.
     clearInterval(time_update_interval);
@@ -60,7 +67,7 @@ function initialize(){
     // the elapsed part of the progress bar every second.
     time_update_interval = setInterval(function () {
         checkLoopStatus();
-        updateTimerDisplay();
+        // updateTimerDisplay();
         // updateProgressBar();
     }, 1000)
 }
@@ -148,11 +155,11 @@ function resetVideo(){
     }
 }
 
-function pauseVideo() {
-    var current = player.getCurrentTime()
-    player.pauseVideo();
-    player.seekTo(current);
-}
+// function pauseVideo() {
+//     var current = player.getCurrentTime()
+//     player.pauseVideo();
+//     player.seekTo(current);
+// }
 
 function playSnippet() {
     var start = parseFloat(document.getElementById('id_start').value)
@@ -222,10 +229,11 @@ function togglePlay(){
     if(play_btn.classList.contains("tmp"))
     {
         play_btn.textContent = 'Pause'
-        playSnippet();
+        // player.playVideo();
+        playSnippet()
     } else {
         play_btn.textContent = 'Play'
-        pauseVideo();
+        player.pauseVideo();
     }
 }
 
