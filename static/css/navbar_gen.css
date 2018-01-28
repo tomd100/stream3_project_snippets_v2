@@ -1,0 +1,84 @@
+
+/* navbar */
+
+.navbar-brand {
+    padding-left: 0;
+    font-size: 34px !important;
+    font-family: 'Roboto Slab', serif !important;
+}
+
+.navbar-default {
+    background-image: none;
+    background-color: #21677F !important; /*GenBk*/
+    border-color: #21677F !important; /*GenBrd*/
+}
+
+.nav{
+    background-image: none;
+    background-color: #21677F !important; /*GenBk*/
+    border-color: #21677F !important; /*GenBrd*/
+}
+
+.navbar{
+    background-image: none;
+    background-color: #21677F !important; /*GenBk*/
+    border-color: #21677F !important; /*GenBrd*/
+}
+
+.navbar-collapse a{
+    font-size: 16px !important;
+    font-family: 'Roboto', sans-serif !important;
+}
+
+.navbar-nav>li>a {
+    padding-top: 20px !important;
+    min-height: 60px !important;
+}
+/*------------------------------------------------------*/
+/* Nav Bar (Stream 1) */		
+
+/*------------------------------------------------------*/
+
+/* brand title colour*/
+.navbar-default .navbar-brand{
+    color: #fff !important; /*BrndTxt*/
+}
+
+/* brand text hover colour */
+.navbar-default .navbar-brand:hover:hover,
+.navbar-default .navbar-brand:focus:focus {
+    color: #fff !important; /*BrndHvrBk*/
+}
+
+/*------------------------------------------------------*/
+
+/* menu item text */
+.navbar-default 
+.navbar-nav>li>a {
+    color: #fff !important; /*MenuTxt*/
+}
+
+/* menu item hover */
+.navbar-default .navbar-nav>li>a:hover, 
+.navbar-default .navbar-nav>li>a:focus {
+    color: #fff !important; /*MenuTxtHvr*/
+    background-color: #35A4CC !important; /*MenuHvrBk*/
+}
+
+/* menu item selected: text and background */
+.navbar-default .navbar-nav>.open>a, 
+.navbar-default .navbar-nav>.open>a:hover, 
+.navbar-default .navbar-nav>.open>a:focus {
+    background-color: #35A4CC !important; /*MenuItemSelBk*/
+    color: #fff !important; /*MenuItemHvrTxt*/
+}
+
+/* dropdown menu items: hover text and background*/
+.dropdown-menu>li>a:hover, 
+.dropdown-menu>li>a:focus {
+    text-decoration: none;
+    color: #fff !important; /*DropItemHvrTxt*/
+    background-color: #35A4CC !important; /*DropItemHvrBk*/
+}
+
+/*------------------------------------------------------*/

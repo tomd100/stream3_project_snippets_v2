@@ -1,40 +1,41 @@
-/* 
-colours: 11
-#21677F: GenBk : general background 
-#21677F: GenBord : general border 
-#fff: BrndTxt : brand title text
-#fff: BrndHvrBk : brand hover background
-#fff: MenuTxt : menu text 
-#fff: MenuTxtHvr : menu text hover
-#35A4CC: MenuHvrBk : menu item hover background 
-#fff: MenuItemSelTxt : menu item selected text 
-#48717F: MenuItemSelBk : menu item selected background 
-#fff: DropItemHvrTxt : dropdown menu item hover text
-#35A4CC: DropItemHvrBk : dropdown menu item hover background
-*/
-
-/* Previous colors */
-
 
 /* navbar */
+
+.navbar-brand {
+    padding-left: 0;
+    font-size: 34px !important;
+    font-family: 'Roboto Slab', serif !important;
+}
 
 .navbar-default {
     background-image: none;
     background-color: #21677F !important; /*GenBk*/
-    border-color: #21677F !important; /*GenBord*/
+    border-color: #21677F !important; /*GenBrd*/
 }
 
 .nav{
     background-image: none;
     background-color: #21677F !important; /*GenBk*/
-    border-color: #21677F !important; /*GenBord*/
+    border-color: #21677F !important; /*GenBrd*/
 }
 
 .navbar{
     background-image: none;
     background-color: #21677F !important; /*GenBk*/
-    border-color: #21677F !important; /*GenBord*/
+    border-color: #21677F !important; /*GenBrd*/
 }
+
+.navbar-collapse a{
+    font-size: 16px !important;
+    font-family: 'Roboto', sans-serif !important;
+}
+
+.navbar-nav>li>a {
+    padding-top: 20px !important;
+    min-height: 60px !important;
+}
+/*------------------------------------------------------*/
+/* Nav Bar (Stream 1) */		
 
 /*------------------------------------------------------*/
 
@@ -49,7 +50,6 @@ colours: 11
     color: #fff !important; /*BrndHvrBk*/
 }
 
-/*------------------------------------------------------*/
 /*------------------------------------------------------*/
 
 /* menu item text */
@@ -69,7 +69,7 @@ colours: 11
 .navbar-default .navbar-nav>.open>a, 
 .navbar-default .navbar-nav>.open>a:hover, 
 .navbar-default .navbar-nav>.open>a:focus {
-    background-color: #48717F !important; /*MenuItemSelBk*/
+    background-color: #35A4CC !important; /*MenuItemSelBk*/
     color: #fff !important; /*MenuItemHvrTxt*/
 }
 
@@ -82,4 +82,3 @@ colours: 11
 }
 
 /*------------------------------------------------------*/
-

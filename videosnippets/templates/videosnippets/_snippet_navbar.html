@@ -1,22 +1,22 @@
 
-<li><a href="{% url 'home' %}"><i class="fa fa-home"></i> Home</a></li>
+<li><a href="{% url 'home' %}">Home</a></li>
 
 <li class="dropdown">
-    <a id="edit_snippet" class="dropdown-toggle" href="#" data-toggle="dropdown" ><i class="fa fa-plus-square-o"></i> Snippets <b class="caret"></b></a>
+    <a id="edit_snippet" class="dropdown-toggle" href="#" data-toggle="dropdown" >Snippets <b class="caret"></b></a>
     <ul class="dropdown-menu scrollable-menu">
-        <li><a href="{% url 'snippet-add' video.id %}">Add New Snippet </a></li>
+        <li><a href="{% url 'snippet-add' video.id %}">Add New Snippet</a></li>
         {% if snippet_list %}
-        <li><a id="edit_list3_menu" class="disabled" href='#' onclick="changeListItems('edit_list', 3)">Edit Snippet</a></li>
-        <li><a id="delete_list3_menu" class="disabled" href='#' onclick="changeListItems('delete_list', 3)">Delete Snippet</a></li>
+            <li><a id="edit_list3_menu" class="disabled" href='#' onclick="changeListItems('edit_list', 3)">Edit Snippet</a></li>
+            <li><a id="delete_list3_menu" class="disabled" href='#' onclick="changeListItems('delete_list', 3)">Delete Snippet</a></li>
         {% endif %}
     </ul>
 </li>
 
 <li class="dropdown">
-    <a id="play_snippet" href="#" data-toggle="dropdown" class="dropdown-toggle"><i class="fa fa-play"></i> Play Snippet <b class="caret"></b></a>
+    <a id="play_snippet" href="#" data-toggle="dropdown" class="dropdown-toggle">Play Snippet <b class="caret"></b></a>
     <ul class="dropdown-menu">
         {% for snippet in snippet_list %}
-        <li><a class='snippet_links' onclick='controlToggle()' href='{% url "snippet-control" snippet.id %}'>{{ snippet.title }}</a></li>
+            <li><a class='snippet_links' onclick='controlToggle()' href='{% url "snippet-control" snippet.id %}'>{{ snippet.title }}</a></li>
         {% endfor %}
     </ul>
 </li>

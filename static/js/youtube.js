@@ -88,72 +88,72 @@ function checkLoopStatus() {
     }
 }
 
-function updateTimerDisplay(){
+// function updateTimerDisplay(){
     // Update current time text display.
     
-    $('#current-time').text( Number((player.getCurrentTime()).toFixed(0)) );
-    $('#duration').text(formatTime( player.getDuration() ));
-}
+//     $('#current-time').text( Number((player.getCurrentTime()).toFixed(0)) );
+//     $('#duration').text(formatTime( player.getDuration() ));
+// }
 
-function formatTime(time){
-    time = Math.round(time);
+// function formatTime(time){
+//     time = Math.round(time);
 
-    var minutes = Math.floor(time / 60),
-    seconds = time - minutes * 60;
+//     var minutes = Math.floor(time / 60),
+//     seconds = time - minutes * 60;
 
-    seconds = seconds < 10 ? '0' + seconds : seconds;
+//     seconds = seconds < 10 ? '0' + seconds : seconds;
 
-    return minutes + ":" + seconds;
-}
+//     return minutes + ":" + seconds;
+// }
 
 // This function is called by initialize()
-function updateProgressBar(){
+// function updateProgressBar(){
     // Update the value of our progress bar accordingly.
-    $('#progress-bar').val((player.getCurrentTime() / player.getDuration()) * 100);
-}
+    // $('#progress-bar').val((player.getCurrentTime() / player.getDuration()) * 100);
+// }
 
 // function resetProgressBar(){
 //     // Reset the progress bar to the beginning
 //     $('#progress-bar').val(0);
 // }
 
-$('#progress-bar').on('mouseup touchend', function (e) {
+// $('#progress-bar').on('mouseup touchend', function (e) {
 
     // Calculate the new time for the video.
     // new time in seconds = total duration in seconds * ( value of range input / 100 )
-    var newTime = player.getDuration() * (e.target.value / 100);
+    // var newTime = player.getDuration() * (e.target.value / 100);
 
     // Skip video to new time.
-    player.seekTo(newTime);
+//     player.seekTo(newTime);
 
-});
+// });
 
     
 // 5. The API calls this function when the player's state changes.
 //    The function indicates that when playing a video (state=1),
 //    the player should play for six seconds and then stop.
-var done = false;
-function onPlayerStateChange(event) {
+// var done = false;
+// function onPlayerStateChange(event) {
     // if (event.data == YT.PlayerState.PLAYING && !done) {
     //   setTimeout(stopVideo, 4000);
       // done = true;
     // }
-}    
+// }    
 
 // -----------------------------------------------------------------------------
 // Functions
 
-function resetVideo(){
-    player.seekTo(0);
-    player.stopVideo();
-    document.getElementById('video_speed').checked = true;   
-    player.setPlaybackRate(1)
-    var play_btn = document.getElementById('play_btn')
-    if(play_btn.textContent == 'Pause'){
-        play_btn.textContent = 'Play'
-        play_btn.classList.toggle('tmp');
-    }
-}
+// function resetVideo(){
+//     player.seekTo(0);
+//     player.stopVideo();
+//     document.getElementById('video_speed').checked = true;   
+//     player.setPlaybackRate(1)
+//     var play_btn = document.getElementById('play_btn')
+//     if(play_btn.textContent == 'Pause'){
+//         play_btn.textContent = 'Play'
+//         play_btn.classList.toggle('tmp');
+//     }
+// }
 
 // function pauseVideo() {
 //     var current = player.getCurrentTime()
@@ -161,19 +161,6 @@ function resetVideo(){
 //     player.seekTo(current);
 // }
 
-function playSnippet() {
-    var start = parseFloat(document.getElementById('id_start').value)
-    var current = player.getCurrentTime()
-    if (start <= 0){
-        start = 0.01
-    }
-    if (current > start){
-        player.seekTo(current);
-    }else{
-        player.seekTo(start);
-    }
-    player.playVideo();
-}
 
 function jumpBack(dir){
     var seconds = parseFloat(document.getElementById('id_jump').value)
@@ -229,12 +216,25 @@ function togglePlay(){
     if(play_btn.classList.contains("tmp"))
     {
         play_btn.textContent = 'Pause'
-        player.playVideo();
-        // playSnippet()
+        // player.playVideo();
+        playSnippet()
     } else {
         play_btn.textContent = 'Play'
         player.pauseVideo();
     }
 }
 
+function playSnippet() {
+    var start = parseFloat(document.getElementById('id_start').value)
+    var current = player.getCurrentTime()
+    if (start <= 0){
+        start = 0.01
+    }
+    player.playVideo();
+    if (current > start){
+        player.seekTo(current);
+    }else{
+        player.seekTo(start);
+    }
+}
 

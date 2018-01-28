@@ -5,18 +5,19 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Snippets App</title>
     
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootswatch/3.3.7/cerulean/bootstrap.min.css">
+    <title>Snippets App</title>
     
     <link rel="stylesheet" href="{% static 'font-awesome-4.7.0/css/font-awesome.min.css' %}">
     <link href="https://fonts.googleapis.com/css?family=Roboto|Roboto+Slab" rel="stylesheet">
     
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.7/js/bootstrap.min.js"></script>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
     
     <link rel="stylesheet" href="{% static 'css/main.css' %}">
     <link rel="stylesheet" href="{% static 'css/style_gen.css' %}">
+    <link rel="stylesheet" href="{% static 'css/navbar_gen.css' %}">
     
     <script src="{% static 'js/main.js' %}"></script>    
     
@@ -27,37 +28,48 @@
 <!--Navbar-->
 
 <section>
-    <nav class="navbar navbar-masthead navbar-default navbar-fixed-top " role="navigation">
+    <!--id="ma-navbar"-->
+    <nav class="navbar navbar-default navbar-fixed-top">
         <div class="container">
+            <!-- Brand and toggle get grouped for better mobile display -->
             <div class="navbar-header">
-                <a class="navbar-brand" href="/">Snippets</a>
+                <button type="button" data-target="#navbarCollapse" data-toggle="collapse" class="navbar-toggle">
+                    <span class="sr-only">Toggle navigation</span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+                <a href="/" class="navbar-brand">Snippets</a>
             </div>
-            
-            <div id="navbar" class="navbar-collapse collapse">
+            <!-- Collection of nav links and other content for toggling -->
+            <div id="navbarCollapse" class="collapse navbar-collapse">
 
-                {% if user.is_authenticated %}
-                
-                <ul class="nav navbar-nav navbar-right">
+                <ul class="nav navbar-nav ">
+                    {% if user.is_authenticated %}
                     
-                    {% block navbar %} {% endblock %}
+                        {% block navbar %} {% endblock %}
                     
-                    <li><a href="{% url 'profile' %}"><i class="fa fa-user"></i> Profile: {{ request.user.username }}</a></li>
-                    <li><a href="{% url 'logout' %}"><i class="fa fa-sign-out"></i> Logout</a></li>
-                </ul>
-            
-                {% else %}
-                
-                <ul class="nav navbar-nav navbar-right">
-                    <li><a href="{% url 'login' %}"><i class="fa fa-sign-in"></i> Login</a></li>
-                    <li><a href="{% url 'register' %}"><i class="fa fa-user-plus"></i> Register</a></li>
-                    <li><a href="#"><i class="fa fa-info"></i> About</a></li>
+                    {% else %}
+                    
+                        <li><a href="{% url 'register' %}">Register</a></li>
+                        <li><a href="#">About</a></li>
+                    
+                    {% endif %}
                 </ul>
                 
-                {% endif %}
-
+                <ul class="nav navbar-nav navbar-right">
+                    {% if user.is_authenticated %}
+                        <li><a href="{% url 'profile' %}">Profile: {{ request.user.username }}</a></li>
+                        <li><a href="{% url 'logout' %}">Logout</a></li>
+                    {% else %}
+                        <li><a href="{% url 'login' %}">Login</a></li>
+                    {% endif %}
+                </ul>
+                
             </div>
         </div>
     </nav>
+     
 </section>
 <!--<section >-->
 <!--    <div id="message_div" class="alert ">-->
@@ -113,6 +125,7 @@
 <!----------------------------------------------------------------------------- footer--->        
 
 {% block footerjs %}{% endblock footerjs %}
+
 
 </body>
 </html>
