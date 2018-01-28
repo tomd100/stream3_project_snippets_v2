@@ -1,39 +1,18 @@
-# 
-# #F8F8F8: navbar background
-# #E7E7E7: navbar border
-# #777: default color
-# #333: hover color (#5E5E5E for .nav-brand)
-# #555: active color
-# #D5D5D5: active background
-# 
 
-# 1 - Read through each record in the css file.
-# 2 - Find the reference for each colour
-# 3 - Find the colour code wihtin the reference
-# 4 - replace the old colour with the new one.
+def updateCSS(old_file, new_file):
 
+    new_colours_list = getColours('colours.css')
+    
+    old_colours_dict = {}
+    old_colours_list = []
+    
+    path = './static/css/'
+    
+    outFile = open(path + new_file, "+w")    
 
-old_colours_dict = {};
-old_colours_list = [];
-
-new_colours_dict = {};
-new_colours_list = [];
-
-found_colours = 0;
-colour_count = 0;
-loop_count = 0;
-
-file_name = './static/css/style.css';
-outfile_name = './static/css/style_gen.css';
-
-write_outfile = 0;
-
-outFile = open(outfile_name, "+w")    
-
-with open(file_name, "r") as inFile:
-    for line in inFile:
-        
-        if len(new_colours_list) == colour_count:
+    with open(path + old_file, "r") as inFile:
+        for line in inFile:
+            
             # Check lines for colours from this point
             for colour in new_colours_list:
                 new_col = colour['colour']
@@ -52,23 +31,40 @@ with open(file_name, "r") as inFile:
                     old_colours_list.append(old_colours_dict.copy());
                     
                     line = line.replace(old_col, new_col);
+    
+            outFile.write(line);
+    
+    inFile.close();
+    outFile.close()
 
-        if found_colours == 1 and loop_count > 0:
-            loop_count -=1;
-            line_split = line.split(':',2)
-            new_colours_dict['colour'] = line_split[0].strip();
-            new_colours_dict['code'] = line_split[1].strip();
-            new_colours_dict['desc'] = line_split[2].strip();
-            new_colours_list.append(new_colours_dict.copy());
+def getColours(colour_file):
+    
+    colours_dict = {};
+    colours_list = [];
+    
+    found_colours = 0;
+
+    path = './static/css/'    
+
+    with open(path + colour_file, "r") as inFile:
+        for line in inFile:
             
-        pos = line.find('colours:');
-        if pos >= 0 and found_colours == 0:
-            found_colours = 1;
-            colour_count = int(line.split(':')[1])
-            loop_count = colour_count;
-        
-        outFile.write(line);
+            pos = line.find('*/');
+            if pos >= 0:
+                found_colours = 0;
 
-inFile.close();
-outFile.close()
+            if found_colours == 1:
+                line_split = line.split(':',2)
+                colours_dict['colour'] = line_split[0].strip();
+                colours_dict['code'] = line_split[1].strip();
+                colours_dict['desc'] = line_split[2].strip();
+                colours_list.append(colours_dict.copy());
 
+            pos = line.find('/*');
+            if pos >= 0:
+                found_colours = 1;
+                
+    return(colours_list)
+    
+updateCSS('style.css', 'style_gen.css')    
+updateCSS('navbar.css', 'navbar_gen.css')    
