@@ -52,6 +52,10 @@ input{
     font-family: 'Roboto', sans-serif;
     color: #21677F; /*h1Ttl*/
 }
+h1{
+    font-family: 'Roboto', sans-serif;
+    color: #21677F; /*h3Ttl*/
+}
 
 h3{
     font-family: 'Roboto', sans-serif;
