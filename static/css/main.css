@@ -203,7 +203,9 @@ input[name="category"]{
     border-top:solid;
     border-width: thin;
     height: 145px;
-    padding-left:10px;
+    margin-left:2px;
+    margin-right:2px;
+    /*padding-left:10px;*/
     padding-top:20px;
 }
 
@@ -240,32 +242,35 @@ input[name="category"]{
     border-top:solid;
     border-width: thin;
     height: 70px;
-    padding-left:10px;
+    margin-left:2px;
+    margin-right:2px;
+    
+    /*padding-left:10px;*/
     padding-top: 20px;
     padding-bottom:10px;
 }
 
-.snippet_controls2_col{
-    height: 80px;
-    padding-right:0;
-    padding-left:0;
-    padding-bottom:10px;
-}
+/*.snippet_controls2_col{*/
+    /*height: 80px;*/
+    /*padding-right:0;*/
+    /*padding-left:0;*/
+    /*padding-bottom:10px;*/
+/*}*/
 
-.speed_loop_label{
-    vertical-align:top;
-    padding-top:0px;
-    padding-right:0;
-    padding-left:0;
-}
+/*.speed_loop_label{*/
+/*    vertical-align:top;*/
+/*    padding-top:0px;*/
+/*    padding-right:0;*/
+/*    padding-left:0;*/
+/*}*/
 
-.speed_loop_label h5{
-    padding-left:30px;
-}
+/*.speed_loop_label h5{*/
+/*    padding-left:30px;*/
+/*}*/
 
 .speed_loop_item{
-    padding-top:8px;
-    padding-right:0;
+/*    padding-top:8px;*/
+/*    padding-right:0;*/
     padding-left:0;
 }
 /*------------------------------------------------------*/
@@ -273,9 +278,10 @@ input[name="category"]{
 .snippet_controls3{
     border-bottom:solid;
     border-width: thin;
-    max-height: 80px;
-    padding-left:10px;
+    margin-left:2px;
+    margin-right:2px;
     padding-top:10px;
+    padding-bottom:10px;
 }
 
 /*------------------------------------------------------*/

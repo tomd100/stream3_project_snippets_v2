@@ -1,0 +1,57 @@
+{% extends "base.html" %}
+{% load static from staticfiles %}
+{% load bootstrap_tags %} 
+
+
+{% block title %}
+
+Subscription Page
+
+{% endblock %}
+
+
+{% block navbar %}
+
+{% include "_index_navbar.html" %}
+
+{% endblock %}
+
+{% block content %}
+
+<div class="col-xs-6">
+  <h3>Welcome to the subscription page</h3>
+  {% if user.profile.sub_type == 0 %}
+  
+      <p>You have arrived here because you do not yet have a subscription.</p>
+      <p>
+        In trial mode you are limited to setting up one video with a max of three snippets.
+        But if you subscribe you can enjoy the benefits of unlimited videos with unlimited snippets. 
+      </p>
+      
+      <button class='btn btn-primary' type='submit'>Subscribe</button>
+      <button class='btn btn-primary' type='button' onclick='window.history.back()'>Return</button>
+
+  {% else %}
+  
+      <p>
+        You already have a subscription which you took out on {{user.profile.sub_start_date}} and which
+        renews on {{user.profile.sub_nextreset_date}}. You can cancel any time you wish, simply select the
+        option below.
+      </p>
+
+      <button class='btn btn-primary' type='submit'>Cancel Subscription</button>
+      <button class='btn btn-primary' type='button' onclick='window.history.back()'>Return</button>
+  
+  {% endif %}    
+
+</div>
+
+
+
+{% endblock %}
+
+<script>
+
+  // temp js for populating the fields for tesing
+  
+</script>

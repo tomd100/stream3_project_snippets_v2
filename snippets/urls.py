@@ -25,8 +25,6 @@ from accounts import urls as accounts_urls
 from videos import urls as videos_urls
 from categories import urls as categories_urls
 from videosnippets import urls as snippets_urls
-from subscribe import urls as subscribe_urls
-
 
 urlpatterns = [
     url(r'^admin/', admin.site.urls),
@@ -35,6 +33,5 @@ urlpatterns = [
     url(r"^videos/", include(videos_urls)),
     url(r"^categories/", include(categories_urls)),
     url(r"^snippets/", include(snippets_urls)),
-    url(r"^subscribe/", include(subscribe_urls)),
     url(r'^media/(?P<path>.*)$', static.serve,{'document_root': MEDIA_ROOT}),
 ]

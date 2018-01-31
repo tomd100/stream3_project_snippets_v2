@@ -4,6 +4,8 @@ from django.contrib.auth.models import User
 from django.core.exceptions import ValidationError
 from django.forms import formset_factory
 from django.contrib import auth, messages
+
+from .models import UserProfile
 #-------------------------------------------------------------------------------
 
 class UserLoginForm(forms.Form):
@@ -51,3 +53,10 @@ class UserRegistrationForm(UserCreationForm):
         return instance    
         
 #-------------------------------------------------------------------------------
+
+class SubscribeForm(forms.ModelForm):
+    class Meta:
+        model = UserProfile
+        fields=['user', 'sub_type', 'sub_start_date']
+        
+#-------------------------------------------------------------------------------    

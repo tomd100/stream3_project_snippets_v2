@@ -20,7 +20,7 @@ Snippet Page
         {% for field in form %}
             {% if field.name != 'video' %} 
                 <label class="field_input_label">{{ field.label_tag }}</label>
-                <p id='snippet_field'>{{ field }}</p>
+                <p>{{ field }}</p>
             {% else %}
                 <span hidden>{{field}}</span>
             {% endif %}

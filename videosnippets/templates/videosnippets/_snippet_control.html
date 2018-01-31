@@ -1,20 +1,21 @@
 
 
 <h3>Snippets Control</h3>
-<div id = 'snippet_control_container'>
+<div  id = 'snippet_control_container'>
         
     <h4 id='id_title_display'></h4>
 
 <!----------------------------------------------------------------------------->                        
 
     <form id='snippet_save' method="POST">
-
-        <input hidden type="text" name="title" required id="id_title" maxlength="500" />   
+        <div class="row" >
+            <input hidden type="text" name="title" required id="id_title" maxlength="500" />   
+        </div>
         {% csrf_token %}
 
 <!----------------------------------------------------------------------------->
 
-        <div id='snippet_controls1'>
+        <div class="row" id='snippet_controls1'>
             <p>       
             <label class="set_label" for="start">Start Marker:</label>
                 <button type="button" class="btn_plus set_button" onclick="setMarker(0)"><i class="fa fa-plus"></i></button><input type='number' name='start' step='0.1' id='id_start' class='marker_field'/>
@@ -31,7 +32,7 @@
     
 <!----------------------------------------------------------------------------->
     
-        <div class='snippet_controls2'>
+        <div class='row snippet_controls2'>
             <p>
                 <button type="button"  id="play_btn" class="btn btn-info" onclick="togglePlay()">Play</button>
                 <button type="button" class="btn btn-info" onclick="jumpBack(0)"><<</button>
@@ -41,30 +42,36 @@
         </div>
         
         <div class='snippet_controls2_col'>
-            <div class='col-md-3 speed_loop_label'>
-                <h5>Speed:</h5>
+            <div class="row">
+                <div class='col-md-3 >
+                    <div speed_loop_label'>
+                        <span>Speed:</span>
+                    </div>
+                    <div class='col-md-3 speed_loop_item'>
+                        <input id='video_speed' type="radio" name="speed" onclick="setSpeed(1)" checked> Normal</br>
+                        <input type="radio" name="speed" onclick="setSpeed(0.5)"> Slow</br>
+                        <input type="radio" name="speed" onclick="setSpeed(0.25)"> Slower
+                    </div>
+                    <div class='col-md-3 speed_loop_label'>
+                        <span>Loop:</span>
+                        <input type="checkbox" id='snippet_loop' name="loop"  unchecked>
+                    </div>
+                    <!--<div class='col-md-3 speed_loop_item'>-->
+                        
+                    <!--</div>-->
+                </div>
             </div>
-            <div class='col-md-3 speed_loop_item'>
-                <input id='video_speed' type="radio" name="speed" onclick="setSpeed(1)" checked> Normal<br>
-                <input type="radio" name="speed" onclick="setSpeed(0.5)"> Slow<br>
-                <input type="radio" name="speed" onclick="setSpeed(0.25)"> Slower
-            </div>
-            <div class='col-md-3 speed_loop_label'>
-                <h5>Loop:</h5>
-            </div>
-            <div class='col-md-3 speed_loop_item'>
-                <input type="checkbox" id='snippet_loop' name="loop"  unchecked>
-            </div>
-        </div>
-        
+            
+                </div>
 <!----------------------------------------------------------------------------->        
-
-        <div class='col-md-12 snippet_controls3'>
+        
+        <div class='row snippet_controls3'>
             <p>
                 <button type="submit" class="btn btn-info" >Save</button>
                 <button type="button" class="btn btn-info" onclick="controlToggle()" >Return</button>
             </p> 
         </div>
+    
 <!----------------------------------------------------------------------------->      
 
     </form>

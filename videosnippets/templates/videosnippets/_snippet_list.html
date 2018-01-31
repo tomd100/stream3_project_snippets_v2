@@ -20,8 +20,8 @@
 </div>
 <a onclick='saveCurrent()' href='{% url "snippet-add" video.id %}'><i class="fa fa-plus"></i></a> &nbsp
 {% if snippet_list %}
-<a href='#' class="disabled" onclick="changeListItems('edit_list', 3)"><i class="fa fa-pencil"></i></a> &nbsp
-<a href='#' class="disabled" onclick="changeListItems('delete_list', 3)"><i class="fa fa-trash"></i></a>
+    <a href='#' class="disabled" onclick="changeListItems('edit_list', 3)"><i class="fa fa-pencil"></i></a> &nbsp
+    <a href='#' class="disabled" onclick="changeListItems('delete_list', 3)"><i class="fa fa-trash"></i></a>
 {% endif %}
 
 <br><br>
@@ -54,5 +54,6 @@ function setPreviousPosition(){
     current = Number(current);
     player.seekTo(current);
 }
+
 </script>
 

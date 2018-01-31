@@ -6,12 +6,12 @@
     <div>
         {% include '_sub_text1.html' %}
     </div>    
-    <form id="subscription_form" ">
+    <form id="subscribe_form" ">
     
         {% csrf_token %}
         
-        <p hidden id='sub_type'>{{ subscription_form.type }}</p>
-        <p hidden id='sub_desc'>{{ subscription_form.description }}</p>
+        <p hidden id='sub_type'>{{ subscribe_form.type }}</p>
+        <p hidden id='sub_desc'>{{ subscribe_form.description }}</p>
     
         <div>
             <br>

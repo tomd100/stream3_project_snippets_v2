@@ -79,10 +79,8 @@ def profile(request):
 #------------------------------------------------------------------------------- 
 
 class SubscribeListView(LoginRequiredMixin, ListView):
+    # form_class = 'SubscribeForm'
     model = UserProfile
+    Fields=['sub_type']
     
-    def get_queryset(self):
-        user = self.request.user
-        return UserProfile.objects.all().filter(user=user)
-        
 #------------------------------------------------------------------------------- 
